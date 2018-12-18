@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="theme-color" content="#000000" />
+  <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>Tentacle</title>
+</head>
+<style>
+  body,
+  html {
+    margin: 0;
+    height: 100%;
+  }
+
+  .loading {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(#333, #000);
+  }
+
+  .loader {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 90px;
+    height: 90px;
+    transform-style: preserve-3d;
+    transform: rotateX(45deg) rotate(45deg);
+  }
+
+  .box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: #fed750;
+    box-shadow: 112.5px 112.5px 20px #000;
+    animation: move 2s ease-in-out infinite both;
+    transform-style: preserve-3d;
+  }
+
+  .box:nth-child(1) {
+    animation-delay: -1s;
+  }
+
+  .box:nth-child(2) {
+    animation-delay: -2s;
+  }
+
+  .box:nth-child(3) {
+    animation-delay: -3s;
+  }
+
+  .box:before,
+  .box:after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+  }
+
+  .box:before {
+    top: 100%;
+    left: 0;
+    background: #e6a32f;
+    transform-origin: center top;
+    transform: rotateX(-90deg);
+  }
+
+  .box:after {
+    top: 0;
+    left: 100%;
+    background: #c87932;
+    transform-origin: center left;
+    transform: rotateY(90deg);
+  }
+
+  @keyframes move {
+
+    0%,
+    100% {
+      transform: none;
+    }
+
+    12.5% {
+      transform: translate(30px, 0);
+    }
+
+    25% {
+      transform: translate(60px, 0);
+    }
+
+    37.5% {
+      transform: translate(60px, 30px);
+    }
+
+    50% {
+      transform: translate(60px, 60px);
+    }
+
+    62.5% {
+      transform: translate(30px, 60px);
+    }
+
+    75% {
+      transform: translate(0, 60px);
+    }
+
+    87.5% {
+      transform: translate(0, 30px);
+    }
+  }
+</style>
+
+<body>
+  <noscript> You need to enable JavaScript to run this app. </noscript>
+  <div id="root">
+    <div class="loading">
+      <div class="loader">
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

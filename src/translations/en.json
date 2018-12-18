@@ -1,0 +1,14 @@
+{
+  "LOGIN_EMAIL": "Email",
+  "LOGIN_PASSWORD": "Password",
+  "LOGIN_HELLO_AGAIN": "Hello again :)",
+  "LOGIN_SIGN_IN_TO_SEE_THE_NEW_GAMES_ADDED": "Sign in to see the new games added!",
+  "LOGIN_LOGIN": "Login",
+  "LOGIN_FORGOT_YOUR_PASSWORD": "Forgot your password?",
+  "LOGIN_REGISTER_ACCOUNT": "Register account",
+
+  "VALIDATIONS_INVALID_EMAIL_ADDRESS": "Invalid email address",
+  "VALIDATIONS_REQUIRED": "Required",
+  "VALIDATIONS_MUST_BE_AT_LEAST": "Must be at least {min} characters",
+  "VALIDATIONS_MUST_BE_OR_LESS": "Must be {max} characters or less"
+}

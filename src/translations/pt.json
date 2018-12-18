@@ -1,0 +1,14 @@
+{
+  "LOGIN_EMAIL": "Email",
+  "LOGIN_PASSWORD": "Senha",
+  "LOGIN_HELLO_AGAIN": "Olá novamente :)",
+  "LOGIN_SIGN_IN_TO_SEE_THE_NEW_GAMES_ADDED": "Entre e veja os novos jogos adicionados!",
+  "LOGIN_LOGIN": "Login",
+  "LOGIN_FORGOT_YOUR_PASSWORD": "Esqueceu sua senha?",
+  "LOGIN_REGISTER_ACCOUNT": "Registrar conta",
+
+  "VALIDATIONS_INVALID_EMAIL_ADDRESS": "Endereço de e-mail inválido",
+  "VALIDATIONS_REQUIRED": "Obrigatório",
+  "VALIDATIONS_MUST_BE_AT_LEAST": "Deve ter pelo menos {min} caracteres",
+  "VALIDATIONS_MUST_BE_OR_LESS": "Deve ter {max} caracteres ou menos"
+}
