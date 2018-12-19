@@ -6,7 +6,6 @@ import { Wrapper, Form, Title, Description, ContentLinks } from './styles';
 import InputGroup from '../../../containers/InputGroup';
 import FormGroup from '../../../components/FormGroup';
 import Button from '../../../components/Button';
-import DotLoader from '../../../components/DotLoader';
 import Link from '../../../components/Link';
 import { required, email, minLength } from '../../../utils/validators';
 
@@ -46,8 +45,7 @@ class LoginForm extends React.Component {
             />
           </FormGroup>
           <Button type="submit" disabled={invalid}>
-            {/* <FormattedMessage id="LOGIN_LOGIN" /> */}
-            <DotLoader />
+            <FormattedMessage id="LOGIN_LOGIN" />
           </Button>
         </Form>
         <ContentLinks>
