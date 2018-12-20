@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Field, reduxForm } from 'redux-form';
+import PropTypes from 'prop-types';
 
 import { Wrapper, Form, Title, Description, ContentLinks } from './styles';
 import InputGroup from '../../../containers/InputGroup';
@@ -60,6 +61,10 @@ class LoginForm extends React.Component {
     );
   }
 }
+
+LoginForm.propTypes = {
+  invalid: PropTypes.bool
+};
 
 export default reduxForm({
   form: 'login'

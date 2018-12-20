@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { ThemeProvider as ThemeProviderStyled } from 'styled-components';
 import { dark, light } from '../../styles/themes';
@@ -18,5 +19,10 @@ class ThemeProvider extends React.Component {
     );
   }
 }
+
+ThemeProvider.propTypes = {
+  theme: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired
+};
 
 export default ThemeProvider;

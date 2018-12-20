@@ -1,3 +1,3 @@
-export const white = "#ffffff";
+export const white = '#ffffff';
 
-export const purple = "#7342e1";
+export const purple = '#7342e1';
