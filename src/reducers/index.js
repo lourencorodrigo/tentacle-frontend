@@ -3,11 +3,13 @@ import { reducer as reduxFormReducer } from 'redux-form';
 
 import { language } from './language';
 import { theme } from './theme';
+import { auth } from './auth';
 
 const reducers = combineReducers({
   form: reduxFormReducer,
   languageState: language,
-  themeState: theme
+  themeState: theme,
+  authStaet: auth
 });
 
 export default reducers;

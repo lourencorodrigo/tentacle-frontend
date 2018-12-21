@@ -3,8 +3,8 @@ import env from '../config/env';
 
 import errorHandler from './errorHandler';
 
-import login from './loginService';
+import auth from './authService';
 
 const dependencies = [env, axios, errorHandler];
 
-export const loginService = login(...dependencies);
+export const loginService = auth(...dependencies);

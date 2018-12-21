@@ -25,15 +25,13 @@ export const Spinner = styled.div`
 `;
 
 export const Bounce1 = styled.div`
-  ${animation}
-  animation-delay: -0.32s;
+  ${animation} animation-delay: -0.32s;
 `;
 
 export const Bounce2 = styled.div`
-  ${animation}
-  animation-delay: -0.16s;
+  ${animation} animation-delay: -0.16s;
 `;
 
 export const Bounce3 = styled.div`
-  ${animation}
+  ${animation};
 `;
