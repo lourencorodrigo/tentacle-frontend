@@ -11,18 +11,19 @@ import game3 from '../../assets/images/background3.jpg';
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       image: ''
     };
   }
 
   componentDidMount() {
-    /* eslint-disable */
-    this.props.auth('rodrigo@gmail.com', '12345');
     const images = [game1, game2, game3];
     const image = images[random(0, images.length - 1)];
     this.setState({ image: image });
+  }
+
+  onSubmit(values) {
+    alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
   }
 
   render() {
@@ -30,7 +31,7 @@ class Login extends React.Component {
       <>
         <Helmet title="Login" />
         <Wrapper background={this.state.image}>
-          <LoginForm />
+          <LoginForm onSubmit={this.onSubmit} />
         </Wrapper>
       </>
     );

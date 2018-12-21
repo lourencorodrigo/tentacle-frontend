@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Field, reduxForm } from 'redux-form';
@@ -13,8 +14,17 @@ import { required, email, minLength } from '../../../utils/validators';
 const minLength5 = minLength(5);
 
 class LoginForm extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+    this.state = {
+      email: '',
+      password: ''
+    };
+  }
+
   render() {
-    const { invalid } = this.props;
+    const { invalid, handleSubmit } = this.props;
     return (
       <Wrapper>
         <Title>
@@ -23,7 +33,7 @@ class LoginForm extends React.Component {
         <Description>
           <FormattedMessage id="login.sign_in_to_see" />
         </Description>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <FormGroup>
             <Field
               name="email"
