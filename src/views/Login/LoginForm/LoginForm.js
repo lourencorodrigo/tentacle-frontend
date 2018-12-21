@@ -18,10 +18,10 @@ class LoginForm extends React.Component {
     return (
       <Wrapper>
         <Title>
-          <FormattedMessage id="LOGIN_HELLO_AGAIN" />
+          <FormattedMessage id="login.hello_again" />
         </Title>
         <Description>
-          <FormattedMessage id="LOGIN_SIGN_IN_TO_SEE_THE_NEW_GAMES_ADDED" />
+          <FormattedMessage id="login.sign_in_to_see" />
         </Description>
         <Form>
           <FormGroup>
@@ -30,7 +30,7 @@ class LoginForm extends React.Component {
               id="email"
               type="email"
               autoFocus
-              textLabel={<FormattedMessage id="LOGIN_EMAIL" />}
+              textLabel={<FormattedMessage id="login.email" />}
               component={InputGroup}
               validate={[email, required]}
             />
@@ -40,21 +40,21 @@ class LoginForm extends React.Component {
               name="password"
               id="password"
               type="password"
-              textLabel={<FormattedMessage id="LOGIN_PASSWORD" />}
+              textLabel={<FormattedMessage id="login.password" />}
               component={InputGroup}
               validate={[minLength5, required]}
             />
           </FormGroup>
           <Button type="submit" disabled={invalid}>
-            <FormattedMessage id="LOGIN_LOGIN" />
+            <FormattedMessage id="login.login" />
           </Button>
         </Form>
         <ContentLinks>
           <Link to="/recovery-password">
-            <FormattedMessage id="LOGIN_FORGOT_YOUR_PASSWORD" />
+            <FormattedMessage id="login.forgot_your_password" />
           </Link>
           <Link to="/rigister">
-            <FormattedMessage id="LOGIN_REGISTER_ACCOUNT" />
+            <FormattedMessage id="login.register_account" />
           </Link>
         </ContentLinks>
       </Wrapper>

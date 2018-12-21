@@ -1,14 +1,14 @@
 {
-  "LOGIN_EMAIL": "Email",
-  "LOGIN_PASSWORD": "Password",
-  "LOGIN_HELLO_AGAIN": "Hello again :)",
-  "LOGIN_SIGN_IN_TO_SEE_THE_NEW_GAMES_ADDED": "Sign in to see the new games added!",
-  "LOGIN_LOGIN": "Login",
-  "LOGIN_FORGOT_YOUR_PASSWORD": "Forgot your password?",
-  "LOGIN_REGISTER_ACCOUNT": "Register account",
+  "login.email": "Email",
+  "login.password": "Password",
+  "login.hello_again": "Hello again :)",
+  "login.sign_in_to_see": "Sign in to see the new games added!",
+  "login.login": "Login",
+  "login.forgot_your_password": "Forgot your password?",
+  "login.register_account": "Register account",
 
-  "VALIDATIONS_INVALID_EMAIL_ADDRESS": "Invalid email address",
-  "VALIDATIONS_REQUIRED": "Required",
-  "VALIDATIONS_MUST_BE_AT_LEAST": "Must be at least {min} characters",
-  "VALIDATIONS_MUST_BE_OR_LESS": "Must be {max} characters or less"
+  "validations.invalid_email_address": "Invalid email address",
+  "validations.required": "Required",
+  "validations.must_be_at_least": "Must be at least {min} characters",
+  "validations.must_be_ar_leass": "Must be {max} characters or less"
 }

@@ -10,8 +10,8 @@ const Button = ({ children, type, disabled }) => (
 );
 
 Button.propTypes = {
-  children: PropTypes.element.isRequired,
-  type: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
+  type: PropTypes.string,
   disabled: PropTypes.bool
 };
 
