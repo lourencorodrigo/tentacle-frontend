@@ -6,7 +6,7 @@ const SCREEN_SM = 767;
 const SCREEN_XS = 449;
 const SCREEN_XXS = 319;
 
-export const rem = value => `${value / 16}em`;
+export const rem = value => `${value / 16}rem`;
 
 export const media = {
   lg: content => css`
