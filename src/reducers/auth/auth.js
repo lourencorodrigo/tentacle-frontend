@@ -7,7 +7,8 @@ import {
 const initialState = {
   data: {},
   loading: false,
-  error: false
+  error: false,
+  errorData: {}
 };
 
 const auth = (state = initialState, action) => {
@@ -17,7 +18,11 @@ const auth = (state = initialState, action) => {
     case SUCCESS_AUTHENTICATE:
       return Object.assign({}, state, { data: action.data, loading: false });
     case FAILURE_AUTHENTICATE:
-      return { data: {}, loading: false, error: true };
+      return Object.assign({}, state, {
+        loading: false,
+        error: true,
+        errorData: action.data.error
+      });
     default:
       return state;
   }

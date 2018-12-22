@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
 
 import LoginForm from './LoginForm';
 import { random } from '../../utils';
@@ -23,19 +24,26 @@ class Login extends React.Component {
   }
 
   onSubmit(values) {
-    alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+    const { email, password } = values;
+    this.props.auth(email, password);
   }
 
   render() {
+    const { loading } = this.props.authState;
     return (
       <>
         <Helmet title="Login" />
         <Wrapper background={this.state.image}>
-          <LoginForm onSubmit={this.onSubmit} />
+          <LoginForm loading={loading} onSubmit={this.onSubmit.bind(this)} />
         </Wrapper>
       </>
     );
   }
 }
+
+Login.propTypes = {
+  auth: PropTypes.func,
+  authState: PropTypes.object
+};
 
 export default Login;

@@ -9,7 +9,7 @@ const reducers = combineReducers({
   form: reduxFormReducer,
   languageState: language,
   themeState: theme,
-  authStaet: auth
+  authState: auth
 });
 
 export default reducers;

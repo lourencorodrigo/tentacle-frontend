@@ -15,8 +15,8 @@ function* authenticate(action) {
       action.password
     );
     yield put({ type: SUCCESS_AUTHENTICATE, data: response.data });
-  } catch (err) {
-    yield put({ type: FAILURE_AUTHENTICATE });
+  } catch (error) {
+    yield put({ type: FAILURE_AUTHENTICATE, data: error });
   }
 }
 

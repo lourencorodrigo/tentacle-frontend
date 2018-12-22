@@ -9,6 +9,7 @@ import InputGroup from '../../../containers/InputGroup';
 import FormGroup from '../../../components/FormGroup';
 import Button from '../../../components/Button';
 import Link from '../../../components/Link';
+import DotLoader from '../../../components/DotLoader';
 import { required, email, minLength } from '../../../utils/validators';
 
 const minLength5 = minLength(5);
@@ -16,7 +17,6 @@ const minLength5 = minLength(5);
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       email: '',
       password: ''
@@ -24,7 +24,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    const { invalid, handleSubmit } = this.props;
+    const { invalid, handleSubmit, loading } = this.props;
     return (
       <Wrapper>
         <Title>
@@ -55,8 +55,8 @@ class LoginForm extends React.Component {
               validate={[minLength5, required]}
             />
           </FormGroup>
-          <Button type="submit" disabled={invalid}>
-            <FormattedMessage id="login.login" />
+          <Button type="submit" disabled={invalid || loading}>
+            {!loading ? <FormattedMessage id="login.login" /> : <DotLoader />}
           </Button>
         </Form>
         <ContentLinks>
@@ -73,7 +73,8 @@ class LoginForm extends React.Component {
 }
 
 LoginForm.propTypes = {
-  invalid: PropTypes.bool
+  invalid: PropTypes.bool,
+  loading: PropTypes.bool
 };
 
 export default reduxForm({
