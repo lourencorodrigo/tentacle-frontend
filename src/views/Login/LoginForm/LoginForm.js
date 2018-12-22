@@ -1,10 +1,9 @@
-/* eslint-disable */
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import { Wrapper, Form, Title, Description, ContentLinks } from './styles';
+import { Form, Title, Description, ContentLinks } from './styles';
 import InputGroup from '../../../containers/InputGroup';
 import FormGroup from '../../../components/FormGroup';
 import Button from '../../../components/Button';
@@ -26,7 +25,7 @@ class LoginForm extends React.Component {
   render() {
     const { invalid, handleSubmit, loading } = this.props;
     return (
-      <Wrapper>
+      <>
         <Title>
           <FormattedMessage id="login.hello_again" />
         </Title>
@@ -67,14 +66,15 @@ class LoginForm extends React.Component {
             <FormattedMessage id="login.register_account" />
           </Link>
         </ContentLinks>
-      </Wrapper>
+      </>
     );
   }
 }
 
 LoginForm.propTypes = {
   invalid: PropTypes.bool,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  handleSubmit: PropTypes.func
 };
 
 export default reduxForm({

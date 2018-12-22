@@ -10,5 +10,7 @@
   "validations.invalid_email_address": "Endereço de e-mail inválido",
   "validations.required": "Obrigatório",
   "validations.must_be_at_least": "Deve ter pelo menos {min} caracteres",
-  "validations.must_be_ar_leass": "Deve ter {max} caracteres ou menos"
+  "validations.must_be_ar_leass": "Deve ter {max} caracteres ou menos",
+
+  "error.bad_request": "Ocorreu um erro ao realizar esta requisição."
 }

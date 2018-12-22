@@ -10,5 +10,7 @@
   "validations.invalid_email_address": "Invalid email address",
   "validations.required": "Required",
   "validations.must_be_at_least": "Must be at least {min} characters",
-  "validations.must_be_ar_leass": "Must be {max} characters or less"
+  "validations.must_be_ar_leass": "Must be {max} characters or less",
+
+  "error.bad_request": "There was an error performing this request."
 }

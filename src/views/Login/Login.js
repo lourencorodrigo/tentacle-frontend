@@ -1,10 +1,12 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
 import LoginForm from './LoginForm';
 import { random } from '../../utils';
-import { Wrapper } from './styles';
+import Alert from '../../components/Alert';
+import { Wrapper, WrapperForm } from './styles';
 import game1 from '../../assets/images/background1.jpg';
 import game2 from '../../assets/images/background2.jpg';
 import game3 from '../../assets/images/background3.jpg';
@@ -29,12 +31,19 @@ class Login extends React.Component {
   }
 
   render() {
-    const { loading } = this.props.authState;
+    const { loading, error, errorData } = this.props.authState;
     return (
       <>
         <Helmet title="Login" />
         <Wrapper background={this.state.image}>
-          <LoginForm loading={loading} onSubmit={this.onSubmit.bind(this)} />
+          <WrapperForm>
+            {error && (
+              <Alert type="danger">
+                {<FormattedMessage id={errorData.message} />}
+              </Alert>
+            )}
+            <LoginForm loading={loading} onSubmit={this.onSubmit.bind(this)} />
+          </WrapperForm>
         </Wrapper>
       </>
     );

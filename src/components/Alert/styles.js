@@ -9,6 +9,7 @@ export const AlertWrapper = styled.div`
   border-radius: ${rem(4)};
   font-family: Avenir;
   position: relative;
+  width: 100%;
 
   ${props =>
     props.type === 'success' &&
@@ -37,8 +38,8 @@ export const AlertWrapper = styled.div`
   ${props =>
     props.type === 'danger' &&
     css`
-      background-color: #f2dede;
-      border-color: #ebcccc;
+      background-color: ${props.theme.danger25};
+      border-color: ${props.theme.danger15};
       color: #a94442;
     `};
 `;
