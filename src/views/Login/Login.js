@@ -10,6 +10,7 @@ import { Wrapper, WrapperForm } from './styles';
 import game1 from '../../assets/images/background1.jpg';
 import game2 from '../../assets/images/background2.jpg';
 import game3 from '../../assets/images/background3.jpg';
+import { TOKEN_NAME } from '../../utils/constants';
 
 class Login extends React.Component {
   constructor(props) {
@@ -20,9 +21,32 @@ class Login extends React.Component {
   }
 
   componentDidMount() {
+    this.generateRandomImages();
+    this.checkForToken();
+  }
+
+  componentDidUpdate() {
+    const {
+      data: { accessToken }
+    } = this.props.authState;
+
+    if (accessToken) this.redirectToHome();
+  }
+
+  generateRandomImages() {
     const images = [game1, game2, game3];
     const image = images[random(0, images.length - 1)];
     this.setState({ image: image });
+  }
+
+  redirectToHome() {
+    this.props.history.push('/');
+  }
+
+  checkForToken() {
+    if (sessionStorage.getItem(TOKEN_NAME)) {
+      this.redirectToHome();
+    }
   }
 
   onSubmit(values) {
@@ -52,7 +76,8 @@ class Login extends React.Component {
 
 Login.propTypes = {
   auth: PropTypes.func,
-  authState: PropTypes.object
+  authState: PropTypes.object,
+  history: PropTypes.object.isRequired
 };
 
 export default Login;

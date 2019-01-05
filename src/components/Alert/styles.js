@@ -53,6 +53,10 @@ export const Close = styled.button`
   background: 0 0;
   border: 0;
   color: inherit;
+
+  &:focus {
+    outline: 0;
+  }
 `;
 
 export const Span = styled.span`
