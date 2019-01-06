@@ -7,7 +7,7 @@ export const Wrapper = styled(Link)`
   font-family: Avenir;
   font-weight: bold;
   letter-spacing: ${rem(1.9)};
-  font-size: ${rem(12)};
+  font-size: ${rem(16)};
   color: #fff;
   transition: color 0.15s linear;
   padding-top: ${rem(5)};
