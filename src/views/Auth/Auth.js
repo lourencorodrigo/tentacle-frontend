@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Routes from './Routes';
+import Router from './Router';
 import { Wrapper, WrapperCard } from './styles';
 import { random } from '../../utils';
 
@@ -31,7 +31,7 @@ class Auth extends React.Component {
       <>
         <Wrapper background={this.state.image}>
           <WrapperCard>
-            <Routes />
+            <Router />
           </WrapperCard>
         </Wrapper>
       </>

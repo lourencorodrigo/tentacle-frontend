@@ -8,7 +8,7 @@ import Alert from '../../../components/Alert';
 import Link from '../../../components/Link';
 import { WrapperLinks } from '../styles';
 import { isUserLogged } from '../../../services/authService';
-import { path } from '../../../Routes';
+import { path } from '../../../Router';
 
 class Login extends React.Component {
   constructor(props) {

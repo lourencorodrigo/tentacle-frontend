@@ -2,12 +2,12 @@ import React from 'react';
 
 import ThemeProvider from './containers/ThemeProvider';
 import I18nProvider from './containers/I18nProvider';
-import Routes from './Routes';
+import Router from './Router';
 
 const App = () => (
   <ThemeProvider>
     <I18nProvider>
-      <Routes />
+      <Router />
     </I18nProvider>
   </ThemeProvider>
 );

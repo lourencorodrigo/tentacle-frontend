@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { path } from '../../../Routes';
+import { path } from '../../../Router';
 import { TOKEN_NAME } from '../../../utils/constants';
 
 class Logout extends React.Component {

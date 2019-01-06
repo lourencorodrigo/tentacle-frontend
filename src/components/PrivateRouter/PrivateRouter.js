@@ -1,9 +1,8 @@
 /* eslint-disable */
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-// import PropTypes from 'prop-types';
 
-import { path } from '../../Routes';
+import { path } from '../../Router';
 import { isUserLogged } from '../../services/authService';
 
 const PrivateRouter = ({ component: Component, ...rest }) => (
@@ -23,13 +22,5 @@ const PrivateRouter = ({ component: Component, ...rest }) => (
     }
   />
 );
-
-// PrivateRouter.propTypes = {
-//   component: PropTypes.element.isRequired,
-//   location: PropTypes.shape({
-//     hash: PropTypes.string.isRequired,
-//     pathname: PropTypes.string.isRequired
-//   })
-// };
 
 export default PrivateRouter;

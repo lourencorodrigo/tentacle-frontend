@@ -2,7 +2,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import { path } from '../../Routes';
+import { path } from '../../Router';
 import Login from './Login';
 import Register from './Register';
 import Logout from './Logout/Logout';

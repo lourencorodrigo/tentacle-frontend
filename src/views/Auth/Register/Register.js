@@ -4,7 +4,7 @@ import RegisterForm from './RegisterForm';
 import Link from '../../../components/Link';
 import { WrapperLinks } from '../styles';
 import { FormattedMessage } from 'react-intl';
-import { path } from '../../../Routes';
+import { path } from '../../../Router';
 
 class Register extends React.Component {
   render() {
