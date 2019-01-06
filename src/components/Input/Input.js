@@ -34,8 +34,8 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   name: PropTypes.string,
   autoFocus: PropTypes.bool,
-  error: PropTypes.bool,
-  warning: PropTypes.bool,
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+  warning: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   onClick: PropTypes.func
 };
 
