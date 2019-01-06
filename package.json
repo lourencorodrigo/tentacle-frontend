@@ -66,6 +66,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "deploy": "yarn build && firebase deploy",
     "test": "node scripts/test.js",
     "format": "prettier --write \"src/**/*.js\"",
     "storybook": "start-storybook -p 6006",
