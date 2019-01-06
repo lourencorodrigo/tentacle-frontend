@@ -18,7 +18,8 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: ''
+      image: '',
+      showAlert: true
     };
   }
 
@@ -47,20 +48,29 @@ class Login extends React.Component {
     }
   }
 
+  showAlertError(show) {
+    this.setState({ showAlert: show });
+  }
+
   onSubmit(values) {
+    this.showAlertError(true);
     const { email, password } = values;
     this.props.auth(email, password);
   }
 
   render() {
     const { loading, error, errorData } = this.props.authState;
+    const { showAlert } = this.state;
     return (
       <>
         <Helmet title="Login" />
         <Wrapper background={this.state.image}>
           <WrapperForm>
-            {error && (
-              <Alert type="danger">
+            {error && !loading && showAlert && (
+              <Alert
+                type="danger"
+                onClick={this.showAlertError.bind(this, false)}
+              >
                 {<FormattedMessage id={errorData.message} />}
               </Alert>
             )}
