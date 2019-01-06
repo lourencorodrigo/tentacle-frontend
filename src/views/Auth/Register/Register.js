@@ -7,10 +7,14 @@ import { FormattedMessage } from 'react-intl';
 import { path } from '../../../Router';
 
 class Register extends React.Component {
+  onSubmit(values) {
+    alert(JSON.stringify(values));
+  }
+
   render() {
     return (
       <>
-        <RegisterForm />
+        <RegisterForm onSubmit={this.onSubmit.bind(this)} />
         <WrapperLinks>
           <Link to={path.AUTH_LOGIN}>
             <FormattedMessage id="register.have_an_account" />

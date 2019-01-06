@@ -22,11 +22,11 @@ const minLength5 = minLength(5);
 
 class RegisterForm extends React.Component {
   render() {
-    const { invalid, loading } = this.props;
+    const { invalid, loading, handleSubmit } = this.props;
     return (
       <>
         <Title>Criar uma conta</Title>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <FormGroup>
             <Field
               name="email"
@@ -53,16 +53,6 @@ class RegisterForm extends React.Component {
               id="password"
               type="password"
               textLabel={<FormattedMessage id="login.password" />}
-              component={InputGroup}
-              validate={[minLength5, required]}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Field
-              name="confirmPassword"
-              id="confirmPassword"
-              type="password"
-              textLabel={<FormattedMessage id="register.confirm_password" />}
               component={InputGroup}
               validate={[minLength5, required]}
             />
