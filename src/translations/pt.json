@@ -9,13 +9,18 @@
 
   "register.name": "Nome",
   "register.username": "Nome de usuário",
-  "register.confirmPassword": "Confirmar senha",
+  "register.confirm_password": "Confirmar senha",
+  "register.state": "Estado",
+  "register.city": "Cidade",
+  "register.create_account": "Criar conta",
   "register.phone": "Telefone + DDD",
+  "register.have_an_account": "Já tem uma conta?",
 
   "validations.invalid_email_address": "Endereço de e-mail inválido",
   "validations.required": "Obrigatório",
   "validations.must_be_at_least": "Deve ter pelo menos {min} caracteres",
   "validations.must_be_ar_leass": "Deve ter {max} caracteres ou menos",
+  "validations.only_lowercase_letters": "Deve ter somente letras minúsculas",
 
   "error.bad_request": "Senha/E-mail estão inválidos.",
   "error.unauthorized": "Senha inválida."

@@ -67,3 +67,11 @@ export const Form = styled.form`
   width: 100%;
   padding-top: ${rem(26)};
 `;
+
+export const WrapperLinks = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-top: ${rem(16)};
+  width: 100%;
+  font-family: Avenir-Black;
+`;

@@ -1,23 +1,28 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { FormattedMessage } from 'react-intl';
+import PropTypes from 'prop-types';
 
-import { CityStateWrapper } from './styles';
+import { CityStateWrapper, StateWrapper } from './styles';
 import { Title, Form } from '../../styles';
 import FormGroup from '../../../../components/FormGroup';
+import { Option } from '../../../../components/Select';
+import Button from '../../../../components/Button';
 import InputGroup from '../../../../containers/InputGroup';
+import SelectGroup from '../../../../containers/SelectGroup';
 import {
   required,
   email,
   minLength,
-  maxLength
+  onlyLowercaseAndNumber
 } from '../../../../utils/validators';
+import DotLoader from '../../../../components/DotLoader';
 
 const minLength5 = minLength(5);
-const maxLength2 = maxLength(2);
 
 class RegisterForm extends React.Component {
   render() {
+    const { invalid, loading } = this.props;
     return (
       <>
         <Title>Criar uma conta</Title>
@@ -40,7 +45,7 @@ class RegisterForm extends React.Component {
               type="text"
               textLabel={<FormattedMessage id="register.username" />}
               component={InputGroup}
-              validate={[required]}
+              validate={[required, onlyLowercaseAndNumber]}
             />
           </FormGroup>
           <FormGroup>
@@ -58,7 +63,7 @@ class RegisterForm extends React.Component {
               name="confirmPassword"
               id="confirmPassword"
               type="password"
-              textLabel={<FormattedMessage id="register.confirmPassword" />}
+              textLabel={<FormattedMessage id="register.confirm_password" />}
               component={InputGroup}
               validate={[minLength5, required]}
             />
@@ -74,32 +79,53 @@ class RegisterForm extends React.Component {
             />
           </FormGroup>
           <CityStateWrapper>
+            <StateWrapper>
+              <FormGroup>
+                <Field
+                  id="state"
+                  name="state"
+                  textLabel={<FormattedMessage id="register.state" />}
+                  component={SelectGroup}
+                  validate={[required]}
+                >
+                  <Option />
+                  <Option value="teste1">PE</Option>
+                  <Option value="teste2">SP</Option>
+                </Field>
+              </FormGroup>
+            </StateWrapper>
             <FormGroup>
               <Field
-                name="state"
-                id="state"
-                type="text"
-                textLabel={<FormattedMessage id="register.state" />}
-                component={InputGroup}
-                validate={[required, maxLength2]}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Field
-                name="city"
                 id="city"
-                type="text"
-                textLabel={<FormattedMessage id="register.phone" />}
-                component={InputGroup}
+                name="city"
+                textLabel={<FormattedMessage id="register.city" />}
+                component={SelectGroup}
                 validate={[required]}
-              />
+              >
+                <Option />
+                <Option value="teste1">São Lourenço da Mata</Option>
+                <Option value="teste2">Recife</Option>
+              </Field>
             </FormGroup>
           </CityStateWrapper>
+          <Button type="submit" disabled={invalid || loading}>
+            {!loading ? (
+              <FormattedMessage id="register.create_account" />
+            ) : (
+              <DotLoader />
+            )}
+          </Button>
         </Form>
       </>
     );
   }
 }
+
+RegisterForm.propTypes = {
+  invalid: PropTypes.bool,
+  loading: PropTypes.bool,
+  handleSubmit: PropTypes.func
+};
 
 export default reduxForm({
   form: 'register'

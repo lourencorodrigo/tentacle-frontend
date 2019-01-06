@@ -1,15 +1,17 @@
+/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import { SelectWrapper, OptionWrapper } from './styles';
 
-const Dropdown = ({
+const Select = ({
   isBlock,
   input,
   error,
   warning,
   children,
   id,
+  name,
   autoFocus
 }) => (
   <SelectWrapper
@@ -17,6 +19,7 @@ const Dropdown = ({
     error={error}
     warning={warning}
     id={id}
+    name={name}
     isBlock={isBlock}
     autoFocus={autoFocus}
   >
@@ -28,10 +31,11 @@ export const Option = ({ children, value }) => (
   <OptionWrapper value={value}>{children}</OptionWrapper>
 );
 
-Dropdown.propTypes = {
+Select.propTypes = {
   isBlock: PropTypes.bool,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.array.isRequired,
   id: PropTypes.string,
+  name: PropTypes.string,
   input: PropTypes.object,
   autoFocus: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
@@ -39,15 +43,15 @@ Dropdown.propTypes = {
 };
 
 Option.propTypes = {
-  children: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  value: PropTypes.string
 };
 
-Dropdown.defaultProps = {
+Select.defaultProps = {
   isBlock: false,
   autoFocus: false,
   error: false,
   warning: false
 };
 
-export default Dropdown;
+export default Select;

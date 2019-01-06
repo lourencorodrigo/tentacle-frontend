@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import LoginForm from './LoginForm';
 import Alert from '../../../components/Alert';
 import Link from '../../../components/Link';
-import { WrapperLinks } from './styles';
+import { WrapperLinks } from '../styles';
 import { isUserLogged } from '../../../services/authService';
 import { path } from '../../../Routes';
 

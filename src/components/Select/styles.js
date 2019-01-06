@@ -4,7 +4,7 @@ import { rem } from '../../styles/tools';
 import { white } from '../../styles/settings';
 
 export const SelectWrapper = styled.select`
-  padding: 0.375rem 0.75rem;
+  padding: 0.52rem 0.75rem;
   font-size: ${rem(16)};
   font-family: Avenir, sans-serif;
   border-radius: ${rem(4)};
