@@ -6,11 +6,12 @@ import { FormattedMessage } from 'react-intl';
 import LoginForm from './LoginForm';
 import { random } from '../../utils';
 import Alert from '../../components/Alert';
-import { Wrapper, WrapperForm } from './styles';
+import Link from '../../components/Link';
+import { Wrapper, WrapperForm, WrapperLinks } from './styles';
+import { TOKEN_NAME } from '../../utils/constants';
 import game1 from '../../assets/images/background1.jpg';
 import game2 from '../../assets/images/background2.jpg';
 import game3 from '../../assets/images/background3.jpg';
-import { TOKEN_NAME } from '../../utils/constants';
 
 class Login extends React.Component {
   constructor(props) {
@@ -67,6 +68,14 @@ class Login extends React.Component {
               </Alert>
             )}
             <LoginForm loading={loading} onSubmit={this.onSubmit.bind(this)} />
+            <WrapperLinks>
+              <Link to="/recovery-password">
+                <FormattedMessage id="login.forgot_your_password" />
+              </Link>
+              <Link to="/register">
+                <FormattedMessage id="login.register_account" />
+              </Link>
+            </WrapperLinks>
           </WrapperForm>
         </Wrapper>
       </>

@@ -3,11 +3,10 @@ import { FormattedMessage } from 'react-intl';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import { Form, Title, Description, ContentLinks } from './styles';
+import { Form, Title, Description } from './styles';
 import InputGroup from '../../../containers/InputGroup';
 import FormGroup from '../../../components/FormGroup';
 import Button from '../../../components/Button';
-import Link from '../../../components/Link';
 import DotLoader from '../../../components/DotLoader';
 import { required, email, minLength } from '../../../utils/validators';
 
@@ -58,14 +57,6 @@ class LoginForm extends React.Component {
             {!loading ? <FormattedMessage id="login.login" /> : <DotLoader />}
           </Button>
         </Form>
-        <ContentLinks>
-          <Link to="/recovery-password">
-            <FormattedMessage id="login.forgot_your_password" />
-          </Link>
-          <Link to="/rigister">
-            <FormattedMessage id="login.register_account" />
-          </Link>
-        </ContentLinks>
       </>
     );
   }

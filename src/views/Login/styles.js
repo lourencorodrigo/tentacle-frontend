@@ -35,3 +35,11 @@ export const WrapperForm = styled.div`
     height: auto;
   `)};
 `;
+
+export const WrapperLinks = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-top: ${rem(16)};
+  width: 100%;
+  font-family: Avenir-Black;
+`;
