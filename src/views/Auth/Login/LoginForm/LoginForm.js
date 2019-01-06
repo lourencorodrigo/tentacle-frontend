@@ -37,7 +37,6 @@ class LoginForm extends React.Component {
               name="email"
               id="email"
               type="email"
-              autoFocus
               textLabel={<FormattedMessage id="login.email" />}
               component={InputGroup}
               validate={[email, required]}
