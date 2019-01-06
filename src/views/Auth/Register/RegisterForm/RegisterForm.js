@@ -15,6 +15,7 @@ import {
   required,
   email,
   minLength,
+  phone,
   onlyLowercaseAndNumber
 } from '../../../../utils/validators';
 import DotLoader from '../../../../components/DotLoader';
@@ -65,7 +66,7 @@ class RegisterForm extends React.Component {
               type="text"
               textLabel={<FormattedMessage id="register.phone" />}
               component={InputGroup}
-              validate={[required]}
+              validate={[required, phone]}
               normalize={normalizePhone}
             />
           </FormGroup>

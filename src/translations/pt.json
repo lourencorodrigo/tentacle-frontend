@@ -15,6 +15,7 @@
   "register.create_account": "Criar conta",
   "register.phone": "Telefone + DDD",
   "register.have_an_account": "Já tem uma conta?",
+  "validations.invalid_phone": "Número de telefone inválido",
 
   "validations.invalid_email_address": "Endereço de e-mail inválido",
   "validations.required": "Obrigatório",
