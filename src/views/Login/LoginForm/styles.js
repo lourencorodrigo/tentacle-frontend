@@ -26,10 +26,3 @@ export const Description = styled.h1`
   color: ${white};
   font-size: ${rem(16)};
 `;
-
-export const ContentLinks = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: ${rem(16)};
-  width: 100%;
-`;

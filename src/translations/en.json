@@ -12,5 +12,6 @@
   "validations.must_be_at_least": "Must be at least {min} characters",
   "validations.must_be_ar_leass": "Must be {max} characters or less",
 
-  "error.bad_request": "There was an error performing this request."
+  "error.bad_request": "Senha/E-mail are invalid.",
+  "error.unauthorized": "Invalid password for the user."
 }

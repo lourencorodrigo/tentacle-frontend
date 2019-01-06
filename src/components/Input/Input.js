@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { InputWrapper } from './styles';
 
-const InputForm = ({
+const Input = ({
   input,
   type,
   id,
@@ -26,4 +27,16 @@ const InputForm = ({
   </>
 );
 
-export default InputForm;
+Input.propTypes = {
+  input: PropTypes.object,
+  type: PropTypes.string,
+  id: PropTypes.string,
+  placeholder: PropTypes.string,
+  name: PropTypes.string,
+  autoFocus: PropTypes.bool,
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+  warning: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+  onClick: PropTypes.func
+};
+
+export default Input;

@@ -16,7 +16,11 @@ const auth = (state = initialState, action) => {
     case REQUEST_AUTHENTICATE:
       return Object.assign({}, state, { loading: true });
     case SUCCESS_AUTHENTICATE:
-      return Object.assign({}, state, { data: action.data, loading: false });
+      return Object.assign({}, state, {
+        data: action.data,
+        loading: false,
+        error: false
+      });
     case FAILURE_AUTHENTICATE:
       return Object.assign({}, state, {
         loading: false,
