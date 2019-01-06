@@ -19,22 +19,12 @@ class Login extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.checkForToken();
-  }
-
   componentDidUpdate() {
     if (isUserLogged()) this.redirectToHome();
   }
 
   redirectToHome() {
-    this.props.history.push('/');
-  }
-
-  checkForToken() {
-    if (isUserLogged()) {
-      this.redirectToHome();
-    }
+    this.props.history.push(path.HOME);
   }
 
   showAlertError(show) {

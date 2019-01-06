@@ -11,11 +11,21 @@ import Auth from './views/Auth';
 import Home from './views/Home';
 
 class Routes extends React.Component {
+  privateRouters = [
+    {
+      path: path.HOME,
+      exact: true,
+      component: Home
+    }
+  ];
+
   render() {
     return (
       <Router>
         <Switch>
-          <PrivateRouter exact path={path.HOME} component={Home} />
+          {this.privateRouters.map((router, index) => (
+            <PrivateRouter key={index} {...router} />
+          ))}
 
           <Route path={path.AUTH} component={Auth} />
 

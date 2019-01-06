@@ -5,16 +5,21 @@ import { Route, Redirect } from 'react-router-dom';
 import { path } from '../../Router';
 import { isUserLogged } from '../../services/authService';
 
-const PrivateRouter = ({ component: Component, ...rest }) => (
+const PrivateRouter = ({
+  mustBeLogged = true,
+  component: Component,
+  redirectTo = path.AUTH_LOGIN,
+  ...rest
+}) => (
   <Route
     {...rest}
     render={props =>
-      isUserLogged() ? (
+      mustBeLogged === isUserLogged() ? (
         <Component {...props} />
       ) : (
         <Redirect
           to={{
-            pathname: path.AUTH_LOGIN,
+            pathname: redirectTo,
             state: { from: props.location }
           }}
         />
