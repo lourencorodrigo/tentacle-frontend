@@ -13,14 +13,6 @@ import { required, email, minLength } from '../../../../utils/validators';
 const minLength5 = minLength(5);
 
 class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      password: ''
-    };
-  }
-
   render() {
     const { invalid, handleSubmit, loading } = this.props;
     return (
