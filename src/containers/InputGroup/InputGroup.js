@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import PropTypes from 'prop-types';
 
 import Input from '../../components/Input';
 import ControlLabel from '../../components/ControlLabel';
@@ -37,5 +38,20 @@ const InputGroup = ({
       ))}
   </>
 );
+
+InputGroup.propTypes = {
+  input: PropTypes.object,
+  type: PropTypes.string,
+  id: PropTypes.string,
+  placeholder: PropTypes.string,
+  name: PropTypes.string,
+  autoFocus: PropTypes.bool,
+  onClick: PropTypes.func,
+  textLabel: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.element.isRequired
+  ]),
+  meta: PropTypes.object
+};
 
 export default InputGroup;

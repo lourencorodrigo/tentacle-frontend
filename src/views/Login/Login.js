@@ -8,7 +8,8 @@ import { random } from '../../utils';
 import Alert from '../../components/Alert';
 import Link from '../../components/Link';
 import { Wrapper, WrapperForm, WrapperLinks } from './styles';
-import { TOKEN_NAME } from '../../utils/constants';
+import { isUserLogged } from '../../services/authService';
+
 import game1 from '../../assets/images/background1.jpg';
 import game2 from '../../assets/images/background2.jpg';
 import game3 from '../../assets/images/background3.jpg';
@@ -27,11 +28,7 @@ class Login extends React.Component {
   }
 
   componentDidUpdate() {
-    const {
-      data: { accessToken }
-    } = this.props.authState;
-
-    if (accessToken) this.redirectToHome();
+    if (isUserLogged()) this.redirectToHome();
   }
 
   generateRandomImages() {
@@ -45,7 +42,7 @@ class Login extends React.Component {
   }
 
   checkForToken() {
-    if (sessionStorage.getItem(TOKEN_NAME)) {
+    if (isUserLogged()) {
       this.redirectToHome();
     }
   }

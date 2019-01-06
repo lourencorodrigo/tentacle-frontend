@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { ROUTER_PATH } from '../../Routes';
 import { TOKEN_NAME } from '../../utils/constants';
 
 class Logout extends React.Component {
@@ -9,7 +10,7 @@ class Logout extends React.Component {
   }
 
   redirectToLogin() {
-    this.props.history.push('/login');
+    this.props.history.push(ROUTER_PATH.LOGIN);
   }
 
   removeToken() {

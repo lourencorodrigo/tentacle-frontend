@@ -11,3 +11,5 @@ export default (env, request, errorHandler) => ({
     return req.data;
   })
 });
+
+export const isUserLogged = () => !!sessionStorage.getItem(TOKEN_NAME);
