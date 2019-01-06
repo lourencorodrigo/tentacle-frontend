@@ -3,8 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import { Form, Description } from './styles';
-import { Title } from '../../styles';
+import { Title, Description, Form } from '../../styles';
 import InputGroup from '../../../../containers/InputGroup';
 import FormGroup from '../../../../components/FormGroup';
 import Button from '../../../../components/Button';

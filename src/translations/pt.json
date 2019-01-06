@@ -7,6 +7,11 @@
   "login.forgot_your_password": "Esqueceu sua senha?",
   "login.register_account": "Registrar conta",
 
+  "register.name": "Nome",
+  "register.username": "Nome de usuário",
+  "register.confirmPassword": "Confirmar senha",
+  "register.phone": "Telefone + DDD",
+
   "validations.invalid_email_address": "Endereço de e-mail inválido",
   "validations.required": "Obrigatório",
   "validations.must_be_at_least": "Deve ter pelo menos {min} caracteres",

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Title } from '../styles';
+import RegisterForm from './RegisterForm';
 
 class Register extends React.Component {
   render() {
-    return <Title>Criar uma conta</Title>;
+    return <RegisterForm />;
   }
 }
 

@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 import { rem, media } from '../../styles/tools';
 import { white } from '../../styles/settings';
 
+import tentacle from '../../assets/images/tentacle/logo-tentacle-02.png';
+
 export const Wrapper = styled.div`
   opacity: ${props => (props.background ? 1 : 0)};
   display: flex;
@@ -23,12 +25,17 @@ export const WrapperCard = styled.div`
   align-items: center;
   flex-direction: column;
   padding: ${rem(30)} ${rem(20)};
-  background: rgba(255, 255, 255, 0.16);
   border-radius: ${rem(0)};
   width: 92%;
   height: 92%;
   border-radius: ${rem(10)};
   transition: width 0.15s linear;
+  background: rgba(255, 255, 255, 0.16);
+
+  background-image: url(${tentacle});
+  background-repeat: no-repeat;
+  background-size: ${rem(350)};
+  background-position: bottom ${rem(-150)} right ${rem(-120)};
 
   ${media.sm(css`
     padding: ${rem(40)} ${rem(50)};
@@ -44,4 +51,19 @@ export const Title = styled.h1`
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
   color: ${white};
   font-size: ${rem(30)};
+`;
+
+export const Description = styled.h1`
+  font-family: Avenir;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-align: center;
+  color: ${white};
+  font-size: ${rem(16)};
+`;
+
+export const Form = styled.form`
+  width: 100%;
+  padding-top: ${rem(26)};
 `;
