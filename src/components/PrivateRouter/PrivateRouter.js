@@ -3,7 +3,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
-import { ROUTER_PATH } from '../../Routes';
+import { path } from '../../Routes';
 import { isUserLogged } from '../../services/authService';
 
 const PrivateRouter = ({ component: Component, ...rest }) => (
@@ -15,7 +15,7 @@ const PrivateRouter = ({ component: Component, ...rest }) => (
       ) : (
         <Redirect
           to={{
-            pathname: ROUTER_PATH.LOGIN,
+            pathname: path.AUTH_LOGIN,
             state: { from: props.location }
           }}
         />

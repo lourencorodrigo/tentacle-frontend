@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import { rem, media } from '../../styles/tools';
+import { white } from '../../styles/settings';
 
 export const Wrapper = styled.div`
   opacity: ${props => (props.background ? 1 : 0)};
@@ -17,7 +18,7 @@ export const Wrapper = styled.div`
   transition: opacity 0.5s linear;
 `;
 
-export const WrapperForm = styled.div`
+export const WrapperCard = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -36,10 +37,11 @@ export const WrapperForm = styled.div`
   `)};
 `;
 
-export const WrapperLinks = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: ${rem(16)};
-  width: 100%;
+export const Title = styled.h1`
   font-family: Avenir-Black;
+  font-weight: 900;
+  text-align: center;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+  color: ${white};
+  font-size: ${rem(30)};
 `;

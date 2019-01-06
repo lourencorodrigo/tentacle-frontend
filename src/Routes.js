@@ -1,9 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom';
 
 import PrivateRouter from './components/PrivateRouter';
-import Login from './views/Login';
-import Logout from './views/Logout';
+import Auth from './views/Auth';
 import Home from './views/Home';
 
 class Routes extends React.Component {
@@ -11,9 +15,12 @@ class Routes extends React.Component {
     return (
       <Router>
         <Switch>
-          <PrivateRouter exact component={Home} path={ROUTER_PATH.HOME} />
-          <Route exact path={ROUTER_PATH.LOGIN} component={Login} />
-          <Route exact path={ROUTER_PATH.LOGOUT} component={Logout} />
+          <PrivateRouter exact path={path.HOME} component={Home} />
+
+          <Route path={path.AUTH} component={Auth} />
+
+          <Redirect from={path.LOGIN} to={path.AUTH_LOGIN} />
+          <Redirect from={path.LOGOUT} to={path.AUTH_LOGOUT} />
         </Switch>
       </Router>
     );
@@ -22,8 +29,14 @@ class Routes extends React.Component {
 
 export default Routes;
 
-export const ROUTER_PATH = {
-  HOME: '/',
-  LOGIN: '/login',
-  LOGOUT: '/logout'
-};
+export const path = new function() {
+  this.AUTH = '/u';
+  this.HOME = '/';
+  this.LOGIN = '/login';
+  this.LOGOUT = '/logout';
+  this.REGISTER = '/register';
+
+  this.AUTH_LOGIN = `${this.AUTH}${this.LOGIN}`;
+  this.AUTH_REGISTER = `${this.AUTH}${this.REGISTER}`;
+  this.AUTH_LOGOUT = `${this.AUTH}${this.LOGOUT}`;
+}();

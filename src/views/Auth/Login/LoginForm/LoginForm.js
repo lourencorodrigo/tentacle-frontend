@@ -3,12 +3,13 @@ import { FormattedMessage } from 'react-intl';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import { Form, Title, Description } from './styles';
-import InputGroup from '../../../containers/InputGroup';
-import FormGroup from '../../../components/FormGroup';
-import Button from '../../../components/Button';
-import DotLoader from '../../../components/DotLoader';
-import { required, email, minLength } from '../../../utils/validators';
+import { Form, Description } from './styles';
+import { Title } from '../../styles';
+import InputGroup from '../../../../containers/InputGroup';
+import FormGroup from '../../../../components/FormGroup';
+import Button from '../../../../components/Button';
+import DotLoader from '../../../../components/DotLoader';
+import { required, email, minLength } from '../../../../utils/validators';
 
 const minLength5 = minLength(5);
 
