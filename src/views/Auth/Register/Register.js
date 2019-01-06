@@ -8,7 +8,7 @@ import { path } from '../../../Router';
 
 class Register extends React.Component {
   onSubmit(values) {
-    alert(JSON.stringify(values));
+    console.log(values);
   }
 
   render() {

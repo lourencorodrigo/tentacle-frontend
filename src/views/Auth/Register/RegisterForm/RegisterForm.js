@@ -10,6 +10,7 @@ import { Option } from '../../../../components/Select';
 import Button from '../../../../components/Button';
 import InputGroup from '../../../../containers/InputGroup';
 import SelectGroup from '../../../../containers/SelectGroup';
+import { phone as normalizePhone } from '../../../../utils/normalize';
 import {
   required,
   email,
@@ -65,6 +66,7 @@ class RegisterForm extends React.Component {
               textLabel={<FormattedMessage id="register.phone" />}
               component={InputGroup}
               validate={[required]}
+              normalize={normalizePhone}
             />
           </FormGroup>
           <CityStateWrapper>
