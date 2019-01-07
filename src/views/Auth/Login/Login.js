@@ -2,9 +2,9 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import { toast } from 'react-toastify';
 
 import LoginForm from './LoginForm';
-import Alert from '../../../components/Alert';
 import Link from '../../../components/Link';
 import { WrapperLinks } from '../styles';
 import { isUserLogged } from '../../../services/authService';
@@ -14,12 +14,17 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: '',
-      showAlert: true
+      image: ''
     };
   }
 
   componentDidUpdate() {
+    const {
+      loading,
+      error,
+      errorData: { message }
+    } = this.props.authState;
+    if (!loading && error) this.showAlertError(message);
     if (isUserLogged()) this.redirectToHome();
   }
 
@@ -27,27 +32,20 @@ class Login extends React.Component {
     this.props.history.push(path.HOME);
   }
 
-  showAlertError(show) {
-    this.setState({ showAlert: show });
-  }
-
   onSubmit(values) {
-    this.showAlertError(true);
     const { email, password } = values;
     this.props.auth(email, password);
   }
 
+  showAlertError(message) {
+    toast.error(<FormattedMessage id={message} />);
+  }
+
   render() {
-    const { loading, error, errorData } = this.props.authState;
-    const { showAlert } = this.state;
+    const { loading } = this.props.authState;
     return (
       <>
         <Helmet title="Login" />
-        {error && !loading && showAlert && (
-          <Alert type="danger" onClick={this.showAlertError.bind(this, false)}>
-            {<FormattedMessage id={errorData.message} />}
-          </Alert>
-        )}
         <LoginForm loading={loading} onSubmit={this.onSubmit.bind(this)} />
         <WrapperLinks>
           <Link to="/recovery-password">
