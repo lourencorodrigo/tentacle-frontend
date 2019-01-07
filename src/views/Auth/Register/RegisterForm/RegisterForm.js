@@ -63,7 +63,7 @@ class RegisterForm extends React.Component {
             <Field
               name="phone"
               id="phone"
-              type="text"
+              type="tel"
               textLabel={<FormattedMessage id="register.phone" />}
               component={InputGroup}
               validate={[required, phone]}
