@@ -24,7 +24,7 @@ const minLength5 = minLength(5);
 
 class RegisterForm extends React.Component {
   render() {
-    const { invalid, loading, handleSubmit } = this.props;
+    const { invalid, loading, handleSubmit, states } = this.props;
     return (
       <>
         <Title>Criar uma conta</Title>
@@ -81,8 +81,11 @@ class RegisterForm extends React.Component {
                   validate={[required]}
                 >
                   <Option />
-                  <Option value="teste1">PE</Option>
-                  <Option value="teste2">SP</Option>
+                  {states.map(state => (
+                    <Option key={state._id} value={state._id}>
+                      {state.name}
+                    </Option>
+                  ))}
                 </Field>
               </FormGroup>
             </StateWrapper>
@@ -113,10 +116,15 @@ class RegisterForm extends React.Component {
   }
 }
 
+RegisterForm.defaultProps = {
+  states: []
+};
+
 RegisterForm.propTypes = {
   invalid: PropTypes.bool,
   loading: PropTypes.bool,
-  handleSubmit: PropTypes.func
+  handleSubmit: PropTypes.func,
+  states: PropTypes.array
 };
 
 export default reduxForm({
