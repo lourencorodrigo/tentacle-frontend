@@ -1,4 +1,5 @@
 {
+  "app.name": "Tentacle",
   "login.email": "Email",
   "login.password": "Senha",
   "login.hello_again": "Olá novamente :)",
@@ -6,7 +7,6 @@
   "login.login": "Login",
   "login.forgot_your_password": "Esqueceu sua senha?",
   "login.register_account": "Registrar conta",
-
   "register.name": "Nome",
   "register.username": "Nome de usuário",
   "register.confirm_password": "Confirmar senha",
@@ -16,13 +16,11 @@
   "register.phone": "Telefone + DDD",
   "register.have_an_account": "Já tem uma conta?",
   "validations.invalid_phone": "Número de telefone inválido",
-
   "validations.invalid_email_address": "Endereço de e-mail inválido",
   "validations.required": "Obrigatório",
   "validations.must_be_at_least": "Deve ter pelo menos {min} caracteres",
   "validations.must_be_ar_leass": "Deve ter {max} caracteres ou menos",
   "validations.only_lowercase_letters": "Deve ter somente letras minúsculas",
-
   "error.bad_request": "Senha/E-mail estão inválidos.",
   "error.unauthorized": "Senha inválida."
 }

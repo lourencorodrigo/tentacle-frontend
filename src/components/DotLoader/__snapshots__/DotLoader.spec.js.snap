@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotloader component should compare the component with a snapshot 1`] = `
+<div
+  className="sc-bdVaJa gQrzl"
+>
+  <div
+    className="sc-bwzfXH kWVtkz"
+  />
+  <div
+    className="sc-htpNat SwUlm"
+  />
+  <div
+    className="sc-bxivhb huGgTa"
+  />
+</div>
+`;

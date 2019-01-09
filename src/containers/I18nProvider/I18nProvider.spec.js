@@ -2,35 +2,31 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { shallow } from 'enzyme';
 
-import { I18n } from './I18n';
+import { I18nProvider } from './I18nProvider';
 import { mountWithIntl } from '../../../helpers/intl-enzyme-test-helper';
 
-class Test extends React.Component {
-  render() {
-    return (
-      <h1>
-        <FormattedMessage id="APP_WELCOME_REACT" />
-      </h1>
-    );
-  }
-}
+const Test = () => (
+  <h1>
+    <FormattedMessage id="app.name" />
+  </h1>
+);
 
-describe('I18N COMPONENT', () => {
+describe('i18n component', () => {
   let wrapper;
 
   beforeEach(() => {
     wrapper = mountWithIntl(<Test />);
   });
 
-  it('+++ should compare the text in h1.', () => {
-    expect(wrapper.text()).toEqual('Welcome to React!');
+  it('should compare the text in h1.', () => {
+    expect(wrapper.text()).toEqual('Tentacle');
   });
 
-  it('+++ should compare the component with a snapshot', () => {
+  it('should compare the component with a snapshot', () => {
     const wrapper = shallow(
-      <I18n>
+      <I18nProvider>
         <Test />
-      </I18n>
+      </I18nProvider>
     );
     expect(wrapper).toMatchSnapshot();
   });

@@ -3,33 +3,37 @@ import ReactDOM from 'react-dom';
 import ReactTestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 
-import Button from './';
+import Alert from './';
 
-describe('button component', () => {
+describe('alert component', () => {
   let wrapper;
-  const button = <Button>Test</Button>;
+  const alert = (
+    <Alert type="success">
+      <span id="test">Test</span>
+    </Alert>
+  );
 
   beforeEach(() => {
-    wrapper = mount(button);
+    wrapper = mount(alert);
   });
 
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(button, div);
+    ReactDOM.render(alert, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   it('should compare the text.', () => {
     expect(
       wrapper
-        .find('button')
+        .find('#test')
         .render()
         .text()
     ).toEqual('Test');
   });
 
   it('should compare the component with a snapshot', () => {
-    const component = ReactTestRenderer.create(button);
+    const component = ReactTestRenderer.create(alert);
     const json = component.toJSON();
     expect(json).toMatchSnapshot();
   });
