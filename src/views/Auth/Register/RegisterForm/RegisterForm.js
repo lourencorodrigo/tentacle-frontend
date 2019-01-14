@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 
+import * as StateAction from '../../../../actions/state';
 import { CityStateWrapper, StateWrapper, CityWrapper } from './styles';
 import { Title, Form } from '../../styles';
 import FormGroup from '../../../../components/FormGroup';
@@ -19,12 +20,27 @@ import {
   onlyLowercaseAndNumber
 } from '../../../../utils/validators';
 import DotLoader from '../../../../components/DotLoader';
+import store from '../../../../store';
 
 const minLength5 = minLength(5);
 
+const asyncValidate = values => {
+  return new Promise(resolve => {
+    store.dispatch(StateAction.getCities(values.state));
+    resolve();
+  });
+};
+
 class RegisterForm extends React.Component {
   render() {
-    const { invalid, loading, handleSubmit, states, loadingState } = this.props;
+    const {
+      invalid,
+      loading,
+      handleSubmit,
+      states,
+      loadingState,
+      cities
+    } = this.props;
     return (
       <>
         <Title>
@@ -103,8 +119,11 @@ class RegisterForm extends React.Component {
                   validate={[required]}
                 >
                   <Option />
-                  <Option value="teste1">São Lourenço da Mata</Option>
-                  <Option value="teste2">Recife</Option>
+                  {cities.map((city, index) => (
+                    <Option key={index} value={city}>
+                      {city}
+                    </Option>
+                  ))}
                 </Field>
               </FormGroup>
             </CityWrapper>
@@ -123,7 +142,8 @@ class RegisterForm extends React.Component {
 }
 
 RegisterForm.defaultProps = {
-  states: []
+  states: [],
+  cities: []
 };
 
 RegisterForm.propTypes = {
@@ -131,9 +151,12 @@ RegisterForm.propTypes = {
   loading: PropTypes.bool,
   loadingState: PropTypes.bool,
   handleSubmit: PropTypes.func,
-  states: PropTypes.array
+  states: PropTypes.array,
+  cities: PropTypes.array
 };
 
 export default reduxForm({
-  form: 'register'
+  form: 'register',
+  asyncValidate,
+  asyncBlurFields: ['state']
 })(RegisterForm);

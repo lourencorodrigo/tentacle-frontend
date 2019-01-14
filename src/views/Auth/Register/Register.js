@@ -23,11 +23,12 @@ class Register extends React.Component {
 
   render() {
     // eslint-disable-next-line
-    const { data, loading } = this.props.stateState;
+    const { data, loading, cities } = this.props.stateState;
     return (
       <>
         <RegisterForm
           states={data}
+          cities={cities}
           loadingState={loading}
           onSubmit={this.onSubmit.bind(this)}
         />
