@@ -11,6 +11,8 @@ const SelectGroup = ({
   name,
   id,
   autoFocus,
+  disabled,
+  loading,
   textLabel,
   children,
   meta: { touched, error, warning }
@@ -21,11 +23,13 @@ const SelectGroup = ({
     </WrapperLabel>
     <Select
       input={input}
+      disabled={disabled}
       name={name}
       id={id}
       error={touched && error}
       warning={touched && warning}
       autoFocus={autoFocus}
+      loading={loading}
     >
       ${children}
     </Select>
@@ -41,7 +45,9 @@ const SelectGroup = ({
 SelectGroup.propTypes = {
   input: PropTypes.object,
   children: PropTypes.array.isRequired,
+  disabled: PropTypes.bool,
   id: PropTypes.string,
+  loading: PropTypes.bool,
   name: PropTypes.string,
   autoFocus: PropTypes.bool,
   onClick: PropTypes.func,

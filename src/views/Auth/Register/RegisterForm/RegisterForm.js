@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 
-import { CityStateWrapper, StateWrapper } from './styles';
+import { CityStateWrapper, StateWrapper, CityWrapper } from './styles';
 import { Title, Form } from '../../styles';
 import FormGroup from '../../../../components/FormGroup';
 import { Option } from '../../../../components/Select';
@@ -24,10 +24,12 @@ const minLength5 = minLength(5);
 
 class RegisterForm extends React.Component {
   render() {
-    const { invalid, loading, handleSubmit, states } = this.props;
+    const { invalid, loading, handleSubmit, states, loadingState } = this.props;
     return (
       <>
-        <Title>Criar uma conta</Title>
+        <Title>
+          <FormattedMessage id="register.create_an_account" />
+        </Title>
         <Form onSubmit={handleSubmit}>
           <FormGroup>
             <Field
@@ -78,6 +80,8 @@ class RegisterForm extends React.Component {
                   name="state"
                   textLabel={<FormattedMessage id="register.state" />}
                   component={SelectGroup}
+                  loading={loadingState}
+                  disabled={loadingState}
                   validate={[required]}
                 >
                   <Option />
@@ -89,19 +93,21 @@ class RegisterForm extends React.Component {
                 </Field>
               </FormGroup>
             </StateWrapper>
-            <FormGroup>
-              <Field
-                id="city"
-                name="city"
-                textLabel={<FormattedMessage id="register.city" />}
-                component={SelectGroup}
-                validate={[required]}
-              >
-                <Option />
-                <Option value="teste1">São Lourenço da Mata</Option>
-                <Option value="teste2">Recife</Option>
-              </Field>
-            </FormGroup>
+            <CityWrapper>
+              <FormGroup>
+                <Field
+                  id="city"
+                  name="city"
+                  textLabel={<FormattedMessage id="register.city" />}
+                  component={SelectGroup}
+                  validate={[required]}
+                >
+                  <Option />
+                  <Option value="teste1">São Lourenço da Mata</Option>
+                  <Option value="teste2">Recife</Option>
+                </Field>
+              </FormGroup>
+            </CityWrapper>
           </CityStateWrapper>
           <Button type="submit" disabled={invalid || loading}>
             {!loading ? (
@@ -123,6 +129,7 @@ RegisterForm.defaultProps = {
 RegisterForm.propTypes = {
   invalid: PropTypes.bool,
   loading: PropTypes.bool,
+  loadingState: PropTypes.bool,
   handleSubmit: PropTypes.func,
   states: PropTypes.array
 };

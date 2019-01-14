@@ -12,10 +12,10 @@ storiesOf('Select', module)
     </ThemeProvider>
   ))
   .add('default', () => (
-    <Select isBlock>
+    <Select isBlock={false}>
+      <Option value="mercedes">Mercedes</Option>
       <Option value="volvo">Volvo</Option>
       <Option value="saab">Saab</Option>
-      <Option value="mercedes">Mercedes</Option>
       <Option value="audi">Audi</Option>
     </Select>
   ));

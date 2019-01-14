@@ -13,6 +13,7 @@
   "register.state": "Estado",
   "register.city": "Cidade",
   "register.create_account": "Criar conta",
+  "register.create_an_account": "Criar uma conta",
   "register.phone": "Telefone + DDD",
   "register.have_an_account": "Já tem uma conta?",
   "validations.invalid_phone": "Número de telefone inválido",
