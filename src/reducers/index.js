@@ -7,7 +7,7 @@ import { auth } from './auth';
 import { state } from './state';
 import { city } from './city';
 
-const reducers = combineReducers({
+export default combineReducers({
   form: reduxFormReducer,
   languageState: language,
   themeState: theme,
@@ -15,5 +15,3 @@ const reducers = combineReducers({
   stateState: state,
   cityState: city
 });
-
-export default reducers;

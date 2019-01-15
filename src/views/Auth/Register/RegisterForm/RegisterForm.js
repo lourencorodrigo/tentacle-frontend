@@ -34,11 +34,9 @@ const asyncValidateCity = values => {
 class RegisterForm extends React.Component {
   rendererTextCreateAccountWithLoader() {
     const { loading } = this.props;
-    if (!loading) {
-      return <FormattedMessage id="register.create_account" />;
-    } else {
-      return <DotLoader />;
-    }
+    const textButton = <FormattedMessage id="register.create_account" />;
+    const loaderButton = <DotLoader />;
+    return !loading ? textButton : loaderButton;
   }
 
   render() {
@@ -107,7 +105,7 @@ class RegisterForm extends React.Component {
                   textLabel={<FormattedMessage id="register.state" />}
                   component={SelectGroup}
                   loading={loadingState}
-                  disabled={loadingState}
+                  disabled={loadingState || states.length === 0}
                   validate={[required]}
                 >
                   <Option />
@@ -127,7 +125,7 @@ class RegisterForm extends React.Component {
                   textLabel={<FormattedMessage id="register.city" />}
                   component={SelectGroup}
                   loading={loadingCity}
-                  disabled={loadingCity}
+                  disabled={loadingCity || cities.length === 0}
                   validate={[required]}
                 >
                   <Option />

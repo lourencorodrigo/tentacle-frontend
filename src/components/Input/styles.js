@@ -16,6 +16,11 @@ export const InputWrapper = styled.input`
   transition: border-color 0.3s, background 0.3s;
   outline: none;
 
+  &:disabled {
+    background: ${props => props.theme.gray48};
+    border: ${em(2)} solid ${props => props.theme.gray48};
+  }
+
   &:focus {
     border: ${em(2)} solid
       ${props => (props.error ? props.theme.danger : props.theme.primary)};

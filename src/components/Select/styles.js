@@ -3,25 +3,33 @@ import styled, { css } from 'styled-components';
 import { em } from '../../styles/tools';
 import { white } from '../../styles/settings';
 import arrow from './arrow.svg';
-import loading from './loading.gif';
+import loading from './loop.svg';
 
 export const Container = styled.div`
   position: relative;
   width: 100%;
   padding-right: ${em(16)};
   overflow: hidden;
-  padding: ${em(3)} ${em(0)};
+  padding: ${em(1.12)} ${em(0)};
   border-radius: ${em(4)};
   padding-right: ${em(16)};
   border: ${em(2)} solid ${white};
   border-color: ${props => props.focus && props.theme.primary};
   border-color: ${props => props.error && props.theme.danger};
   background: url(${props => !props.loading && arrow}) no-repeat right ${white};
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, background 0.3s;
 
   &::after {
     background: url(loading) no-repeat;
   }
+
+  ${props =>
+    props.disabled &&
+    css`
+      background: url(${!props.loading && arrow}) no-repeat right
+        ${props.theme.gray48};
+      border: ${em(2)} solid ${props => props.theme.gray48};
+    `}
 
   ${props =>
     props.loading &&

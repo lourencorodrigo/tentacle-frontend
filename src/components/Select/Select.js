@@ -34,12 +34,14 @@ class Select extends React.Component {
       name,
       autoFocus
     } = this.props;
+    const { focus } = this.state;
     return (
       <Container
         loading={loading}
-        focus={this.state.focus}
+        focus={focus}
         error={error}
         warning={warning}
+        disabled={disabled}
       >
         <SelectWrapper
           {...input}
