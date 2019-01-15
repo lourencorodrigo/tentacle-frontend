@@ -96,7 +96,7 @@ class RegisterForm extends React.Component {
                   name="state"
                   textLabel={<FormattedMessage id="register.state" />}
                   component={SelectGroup}
-                  loading={loadingState}
+                  loading={true}
                   disabled={loadingState}
                   validate={[required]}
                 >

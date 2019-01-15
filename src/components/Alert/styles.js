@@ -6,7 +6,7 @@ export const AlertWrapper = styled.div`
   opacity: 0.85;
   padding: ${rem(12)} ${rem(20)};
   margin-bottom: ${rem(16)};
-  border: 1px solid transparent;
+  border: ${rem(1)} solid transparent;
   border-radius: ${rem(4)};
   font-family: Avenir;
   position: relative;
@@ -49,7 +49,7 @@ export const Close = styled.button`
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0.75rem 1.25rem;
+  padding: ${rem(12)} ${rem(20)};
   cursor: pointer;
   background: 0 0;
   border: 0;
@@ -61,8 +61,8 @@ export const Close = styled.button`
 `;
 
 export const Span = styled.span`
-  font-size: 1.5rem;
+  font-size: ${rem(24)};
   font-weight: 700;
   line-height: 1;
-  text-shadow: 0 1px 0 #fff;
+  text-shadow: 0 ${rem(1)} 0 #fff;
 `;

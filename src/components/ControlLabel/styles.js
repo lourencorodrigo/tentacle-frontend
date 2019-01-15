@@ -7,7 +7,7 @@ export const Label = styled.label`
   font-weight: bold;
   text-transform: uppercase;
   font-size: ${rem(16)};
-  letter-spacing: 1.6px;
+  letter-spacing: ${rem(1.6)};
   color: #fff;
   transition: color 0.3s linear;
   margin: 0;

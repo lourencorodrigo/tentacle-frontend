@@ -11,13 +11,13 @@ export const InputWrapper = styled.input`
   font-family: Avenir, sans-serif;
   width: 100%;
   border-radius: ${rem(4)};
-  border: 2px solid ${props => (props.error ? props.theme.danger : white)};
+  border: ${rem(2)} solid ${props => (props.error ? props.theme.danger : white)};
   background: ${white};
   transition: border-color 0.3s, background 0.3s;
   outline: none;
 
   &:focus {
-    border: 2px solid
+    border: ${rem(2)} solid
       ${props => (props.error ? props.theme.danger : props.theme.primary)};
     background: ${white};
   }

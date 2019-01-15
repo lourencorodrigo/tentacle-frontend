@@ -48,16 +48,16 @@ export const Title = styled.h1`
   font-family: Avenir-Black;
   font-weight: 900;
   text-align: center;
-  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+  text-shadow: ${rem(1)} ${rem(1)} 0 rgba(0, 0, 0, 0.3);
   color: ${white};
   font-size: ${rem(30)};
 `;
 
 export const Description = styled.h1`
   font-family: Avenir;
-  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+  text-shadow: ${rem(1)} ${rem(1)} 0 rgba(0, 0, 0, 0.3);
   font-weight: 500;
-  letter-spacing: 2.5px;
+  letter-spacing: ${rem(40)};
   text-align: center;
   color: ${white};
   font-size: ${rem(16)};

@@ -3,17 +3,17 @@ import styled, { css } from 'styled-components';
 import { rem } from '../../styles/tools';
 import { white } from '../../styles/settings';
 import arrow from './arrow.svg';
-import loading from './loop.svg';
+import loading from './loading.gif';
 
 export const Container = styled.div`
   position: relative;
   width: 100%;
   padding-right: ${rem(16)};
   overflow: hidden;
-  padding: ${rem(4)} ${rem(0)};
+  padding: ${rem(3)} ${rem(0)};
   border-radius: ${rem(4)};
   padding-right: ${rem(16)};
-  border: 2px solid ${white};
+  border: ${rem(2)} solid ${white};
   border-color: ${props => props.focus && props.theme.primary};
   border-color: ${props => props.error && props.theme.danger};
   background: url(${props => !props.loading && arrow}) no-repeat right ${white};
@@ -30,7 +30,7 @@ export const Container = styled.div`
         content: '';
         position: absolute;
         left: 0;
-        right: 0;
+        right: ${rem(5)};
         top: 0;
         bottom: 0;
         background: url(${props => props.loading && loading}) no-repeat right;
@@ -55,5 +55,5 @@ export const SelectWrapper = styled.select`
 `;
 
 export const OptionWrapper = styled.option`
-  border: 50px solid;
+  border: 0 solid;
 `;
