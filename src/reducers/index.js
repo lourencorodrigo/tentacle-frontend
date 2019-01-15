@@ -5,13 +5,15 @@ import { language } from './language';
 import { theme } from './theme';
 import { auth } from './auth';
 import { state } from './state';
+import { city } from './city';
 
 const reducers = combineReducers({
   form: reduxFormReducer,
   languageState: language,
   themeState: theme,
   authState: auth,
-  stateState: state
+  stateState: state,
+  cityState: city
 });
 
 export default reducers;

@@ -8,11 +8,6 @@ import { FormattedMessage } from 'react-intl';
 import { path } from '../../../Router';
 
 class Register extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-  }
-
   onSubmit(values) {
     console.log(values);
   }
@@ -24,12 +19,15 @@ class Register extends React.Component {
   render() {
     // eslint-disable-next-line
     const { data, loading, cities } = this.props.stateState;
+    // eslint-disable-next-line
+    const loadingCity = this.props.cityState.loading;
     return (
       <>
         <RegisterForm
           states={data}
           cities={cities}
           loadingState={loading}
+          loadingCity={loadingCity}
           onSubmit={this.onSubmit.bind(this)}
         />
         <WrapperLinks>

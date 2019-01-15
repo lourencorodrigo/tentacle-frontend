@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { rem, media } from '../../../styles/tools';
+import { em, media } from '../../../styles/tools';
 
 export const WrapperForm = styled.div`
   display: flex;
