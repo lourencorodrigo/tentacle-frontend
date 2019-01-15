@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { rem } from '../../styles/tools';
+import { em } from '../../styles/tools';
 
 export const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: ${rem(16)};
+  margin-bottom: ${em(16)};
 `;

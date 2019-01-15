@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
 
-import { rem } from '../../styles/tools';
+import { em } from '../../styles/tools';
 
 export const AlertWrapper = styled.div`
   opacity: 0.85;
-  padding: ${rem(12)} ${rem(20)};
-  margin-bottom: ${rem(16)};
-  border: ${rem(1)} solid transparent;
-  border-radius: ${rem(4)};
+  padding: ${em(12)} ${em(20)};
+  margin-bottom: ${em(16)};
+  border: ${em(1)} solid transparent;
+  border-radius: ${em(4)};
   font-family: Avenir;
   position: relative;
   width: 100%;
@@ -49,7 +49,7 @@ export const Close = styled.button`
   position: absolute;
   top: 0;
   right: 0;
-  padding: ${rem(12)} ${rem(20)};
+  padding: ${em(12)} ${em(20)};
   cursor: pointer;
   background: 0 0;
   border: 0;
@@ -61,8 +61,8 @@ export const Close = styled.button`
 `;
 
 export const Span = styled.span`
-  font-size: ${rem(24)};
+  font-size: ${em(24)};
   font-weight: 700;
   line-height: 1;
-  text-shadow: 0 ${rem(1)} 0 #fff;
+  text-shadow: 0 ${em(1)} 0 #fff;
 `;

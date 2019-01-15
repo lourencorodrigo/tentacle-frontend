@@ -1,6 +1,6 @@
 import styled, { keyframes, css } from 'styled-components';
 
-import { rem } from '../../styles/tools';
+import { em } from '../../styles/tools';
 
 const bouncedelay = keyframes`
   0%, 80%, 100% {
@@ -18,8 +18,8 @@ export const Spinner = styled.div`
   text-align: center;
 
   & > div {
-    width: ${rem(10)};
-    height: ${rem(10)};
+    width: ${em(10)};
+    height: ${em(10)};
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 100%;
     display: inline-block;
