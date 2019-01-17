@@ -31,6 +31,7 @@ export const WrapperCard = styled.div`
   border-radius: ${em(10)};
   transition: width 0.15s linear;
   background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 
   background-image: url(${tentacle});
   background-repeat: no-repeat;
