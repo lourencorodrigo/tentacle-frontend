@@ -18,7 +18,6 @@ const auth = (state = initialState, action) => {
         isError: false
       });
     case USER_FAILURE:
-      console.log(action);
       return Object.assign({}, state, {
         isLoading: false,
         isError: true,
