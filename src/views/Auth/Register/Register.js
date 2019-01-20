@@ -16,19 +16,23 @@ class Register extends React.Component {
     this.props.getStates();
   }
 
+  onChangeState(event) {
+    const idCity = event.target.value;
+    if (idCity) this.props.getCities(idCity);
+  }
+
   render() {
-    // eslint-disable-next-line
-    const { data, loading, cities } = this.props.stateState;
-    // eslint-disable-next-line
-    const loadingCity = this.props.cityState.loading;
+    const { stateState, cityState } = this.props;
+    console.log(cityState);
     return (
       <>
         <RegisterForm
-          states={data}
-          cities={cities}
-          loadingState={loading}
-          loadingCity={loadingCity}
+          states={stateState.payload}
+          cities={cityState.payload}
+          loadingState={stateState.loading}
+          loadingCity={stateState.loading}
           onSubmit={this.onSubmit.bind(this)}
+          onChangeState={this.onChangeState.bind(this)}
         />
         <WrapperLinks>
           <Link to={path.AUTH_LOGIN}>
@@ -41,7 +45,10 @@ class Register extends React.Component {
 }
 
 Register.propTypes = {
-  getStates: PropTypes.func
+  getStates: PropTypes.func,
+  getCities: PropTypes.func,
+  stateState: PropTypes.object,
+  cityState: PropTypes.object
 };
 
 export default Register;

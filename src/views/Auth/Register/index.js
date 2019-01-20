@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 
 import Register from './Register';
 import * as StateAction from '../../../actions/state';
-import * as CityAction from '../../../actions/city';
 
 const mapStateToProps = state => ({
   stateState: state.stateState,
@@ -11,7 +10,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(Object.assign({}, StateAction, CityAction), dispatch);
+  bindActionCreators(StateAction, dispatch);
 
 export default connect(
   mapStateToProps,

@@ -4,8 +4,7 @@ import { reducer as reduxFormReducer } from 'redux-form';
 import { language } from './language';
 import { theme } from './theme';
 import { auth } from './auth';
-import { state } from './state';
-import { city } from './city';
+import { state, city } from './state';
 
 export default combineReducers({
   form: reduxFormReducer,

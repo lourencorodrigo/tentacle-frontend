@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 
-import * as CityAction from '../../../../actions/city';
 import { CityStateWrapper, StateWrapper, CityWrapper } from './styles';
 import { Title, Form } from '../../styles';
 import FormGroup from '../../../../components/FormGroup';
@@ -21,16 +20,16 @@ import {
   onlyLowercaseAndNumber
 } from '../../../../utils/validators';
 import DotLoader from '../../../../components/DotLoader';
-import store from '../../../../store';
+// import store from '../../../../store';
 
 const minLength5 = minLength(5);
 
-const asyncValidateCity = values => {
-  return new Promise(resolve => {
-    store.dispatch(CityAction.getCities(values.state));
-    resolve();
-  });
-};
+// const asyncValidateCity = values => {
+//   return new Promise(resolve => {
+//     store.dispatch(CityAction.getCities(values.state));
+//     resolve();
+//   });
+// };
 
 class RegisterForm extends React.Component {
   rendererTextCreateAccountWithLoader() {
@@ -55,7 +54,8 @@ class RegisterForm extends React.Component {
       states,
       loadingState,
       loadingCity,
-      cities
+      cities,
+      onChangeState
     } = this.props;
     return (
       <>
@@ -115,6 +115,7 @@ class RegisterForm extends React.Component {
                   loading={loadingState}
                   disabled={loadingState || states.length === 0}
                   validate={[required]}
+                  onChange={onChangeState}
                 >
                   <Option />
                   {states.map(state => (
@@ -169,12 +170,13 @@ RegisterForm.propTypes = {
   states: PropTypes.array,
   cities: PropTypes.array,
   change: PropTypes.func,
-  cityValue: PropTypes.string
+  cityValue: PropTypes.string,
+  onChangeState: PropTypes.func
 };
 
 const registerFormReduxForm = reduxForm({
   form: 'register',
-  asyncValidate: asyncValidateCity,
+  // asyncValidate: asyncValidateCity,
   asyncBlurFields: ['state']
 })(RegisterForm);
 
