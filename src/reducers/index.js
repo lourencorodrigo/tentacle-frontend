@@ -4,12 +4,15 @@ import { reducer as reduxFormReducer } from 'redux-form';
 import { language } from './language';
 import { theme } from './theme';
 import { auth } from './auth';
+import { state, city } from './state';
+import { user } from './user';
 
-const reducers = combineReducers({
+export default combineReducers({
   form: reduxFormReducer,
   languageState: language,
   themeState: theme,
-  authState: auth
+  authState: auth,
+  stateState: state,
+  cityState: city,
+  userState: user
 });
-
-export default reducers;

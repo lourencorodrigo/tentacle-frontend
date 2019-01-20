@@ -14,6 +14,7 @@ const InputGroup = ({
   type,
   autoFocus,
   textLabel,
+  disabled,
   meta: { touched, error, warning }
 }) => (
   <>
@@ -25,6 +26,7 @@ const InputGroup = ({
       placeholder={placeholder}
       name={name}
       id={id}
+      disabled={disabled}
       error={touched && error}
       warning={touched && warning}
       type={type}
@@ -51,7 +53,8 @@ InputGroup.propTypes = {
     PropTypes.string.isRequired,
     PropTypes.element.isRequired
   ]),
-  meta: PropTypes.object
+  meta: PropTypes.object,
+  disabled: PropTypes.bool
 };
 
 export default InputGroup;

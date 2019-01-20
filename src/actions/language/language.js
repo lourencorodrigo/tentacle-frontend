@@ -1,6 +1,6 @@
-export const UPDATE_LANGUAGE = 'UPDATE_LANGUAGE';
+export const LANGUAGE_UPDATE = '@tentacle/language/LANGUAGE_UPDATE';
 
-export const updateLanguage = value => ({
-  type: UPDATE_LANGUAGE,
-  language: value
+export const updateLanguage = language => ({
+  type: LANGUAGE_UPDATE,
+  language
 });

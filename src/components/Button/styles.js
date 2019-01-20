@@ -1,19 +1,21 @@
 import styled from 'styled-components';
 
+import { em } from '../../styles/tools';
+
 export const Wrapper = styled.button`
   color: #fff;
   font-family: Avenir;
   font-weight: bold;
-  font-size: 16px;
-  background: #7342e1;
+  font-size: ${em(16)};
+  background: ${props => props.theme.primary};
   border: 0;
-  padding: 0.6rem 1rem;
+  padding: ${em(10)} ${em(16)};
   width: 100%;
   display: inline-block;
-  border-radius: 0.25rem;
+  border-radius: ${em(4)};
   user-select: none;
-  border-radius: 6px;
-  letter-spacing: 1.5px;
+  border-radius: ${em(6)};
+  letter-spacing: ${em(1.5)};
   transition: background 0.3s ease-in-out;
 
   &:focus,
@@ -25,7 +27,7 @@ export const Wrapper = styled.button`
   }
 
   &:disabled {
-    background: rgba(36, 40, 47, 0.48);
+    background: ${props => props.theme.gray48};
     cursor: default;
   }
 `;

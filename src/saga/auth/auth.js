@@ -1,11 +1,7 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 
 import { loginService } from '../../services';
-import {
-  REQUEST_AUTHENTICATE,
-  SUCCESS_AUTHENTICATE,
-  FAILURE_AUTHENTICATE
-} from '../../actions/auth';
+import { AUTH_REQUEST, AUTH_SUCCESS, AUTH_FAILURE } from '../../actions/auth';
 
 function* authenticate(action) {
   try {
@@ -14,12 +10,12 @@ function* authenticate(action) {
       action.email,
       action.password
     );
-    yield put({ type: SUCCESS_AUTHENTICATE, data: response.data });
+    yield put({ type: AUTH_SUCCESS, data: response.data });
   } catch (error) {
-    yield put({ type: FAILURE_AUTHENTICATE, data: error });
+    yield put({ type: AUTH_FAILURE, data: error });
   }
 }
 
-const auth = [takeEvery(REQUEST_AUTHENTICATE, authenticate)];
+const auth = [takeEvery(AUTH_REQUEST, authenticate)];
 
 export default auth;

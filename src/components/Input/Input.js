@@ -11,20 +11,20 @@ const Input = ({
   name,
   autoFocus,
   error,
-  warning
+  warning,
+  disabled
 }) => (
-  <>
-    <InputWrapper
-      {...input}
-      placeholder={placeholder}
-      name={name}
-      id={id}
-      error={error}
-      warning={warning}
-      type={type}
-      autoFocus={autoFocus}
-    />
-  </>
+  <InputWrapper
+    {...input}
+    placeholder={placeholder}
+    name={name}
+    id={id}
+    error={error}
+    warning={warning}
+    type={type}
+    autoFocus={autoFocus}
+    disabled={disabled}
+  />
 );
 
 Input.propTypes = {
@@ -36,7 +36,8 @@ Input.propTypes = {
   autoFocus: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   warning: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  disabled: PropTypes.bool
 };
 
 export default Input;
