@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`alert component should compare the component with a snapshot 1`] = `
+<div
+  className="sc-bdVaJa ewZunz"
+  type="success"
+>
+  <span
+    id="test"
+  >
+    Test
+  </span>
+  <button
+    aria-label="Close"
+    className="sc-bwzfXH iEoEWc"
+    data-dismiss="alert"
+    type="button"
+  >
+    <span
+      aria-hidden="true"
+      className="sc-htpNat kIqkdN"
+    >
+      ×
+    </span>
+  </button>
+</div>
+`;

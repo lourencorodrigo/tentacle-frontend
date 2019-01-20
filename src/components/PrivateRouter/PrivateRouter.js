@@ -1,21 +1,25 @@
 /* eslint-disable */
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-// import PropTypes from 'prop-types';
 
-import { ROUTER_PATH } from '../../Routes';
+import { path } from '../../Router';
 import { isUserLogged } from '../../services/authService';
 
-const PrivateRouter = ({ component: Component, ...rest }) => (
+const PrivateRouter = ({
+  mustBeLogged = true,
+  component: Component,
+  redirectTo = path.AUTH_LOGIN,
+  ...rest
+}) => (
   <Route
     {...rest}
     render={props =>
-      isUserLogged() ? (
+      mustBeLogged === isUserLogged() ? (
         <Component {...props} />
       ) : (
         <Redirect
           to={{
-            pathname: ROUTER_PATH.LOGIN,
+            pathname: redirectTo,
             state: { from: props.location }
           }}
         />
@@ -23,13 +27,5 @@ const PrivateRouter = ({ component: Component, ...rest }) => (
     }
   />
 );
-
-// PrivateRouter.propTypes = {
-//   component: PropTypes.element.isRequired,
-//   location: PropTypes.shape({
-//     hash: PropTypes.string.isRequired,
-//     pathname: PropTypes.string.isRequired
-//   })
-// };
 
 export default PrivateRouter;

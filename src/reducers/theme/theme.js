@@ -1,10 +1,10 @@
-import { UPDATE_THEME } from '../../actions/theme';
+import { THEME_UPDATE } from '../../actions/theme';
 
 const initialState = { theme: 'dark' };
 
 const themeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_THEME:
+    case THEME_UPDATE:
       return Object.assign({}, state, {
         theme: action.theme
       });

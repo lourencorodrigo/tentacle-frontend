@@ -9,6 +9,7 @@ import GlobalStyle from './styles/fonts';
 
 import './assets/vendor/reset.css';
 import './assets/vendor/fonts.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(

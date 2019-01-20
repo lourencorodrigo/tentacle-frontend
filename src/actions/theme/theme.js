@@ -1,6 +1,6 @@
-export const UPDATE_THEME = 'UPDATE_THEME';
+export const THEME_UPDATE = 'THEME_UPDATE';
 
 export const updateTheme = theme => ({
-  type: UPDATE_THEME,
+  type: THEME_UPDATE,
   theme
 });
