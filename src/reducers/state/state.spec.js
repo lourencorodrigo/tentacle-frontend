@@ -13,7 +13,7 @@ describe('staet reducer', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
   });
 
-  it('should handle REQUEST_STATE', () => {
+  it('should handle STATE_REQUEST', () => {
     expect(reducer([], getStates())).toEqual({ loading: true });
   });
 });

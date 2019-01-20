@@ -1,9 +1,5 @@
 import { auth as reducer } from './';
-import {
-  auth,
-  SUCCESS_AUTHENTICATE,
-  FAILURE_AUTHENTICATE
-} from '../../actions/auth';
+import { auth, AUTH_SUCCESS, AUTH_FAILURE } from '../../actions/auth';
 
 const initialState = {
   data: {},
@@ -17,16 +13,16 @@ describe('auth reducer', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
   });
 
-  it('should handle REQUEST_AUTHENTICATE', () => {
+  it('should handle AUTH_REQUEST', () => {
     expect(reducer([], auth('test@example.com', '123456'))).toEqual({
       loading: true
     });
   });
 
-  it('should handle SUCCESS_AUTHENTICATE', () => {
+  it('should handle AUTH_SUCCESS', () => {
     expect(
       reducer([], {
-        type: SUCCESS_AUTHENTICATE,
+        type: AUTH_SUCCESS,
         data: { accessToken: '12345' }
       })
     ).toEqual({
@@ -36,10 +32,10 @@ describe('auth reducer', () => {
     });
   });
 
-  it('should handle FAILURE_AUTHENTICATE', () => {
+  it('should handle AUTH_FAILURE', () => {
     expect(
       reducer([], {
-        type: FAILURE_AUTHENTICATE,
+        type: AUTH_FAILURE,
         data: { error: 'error test' }
       })
     ).toEqual({

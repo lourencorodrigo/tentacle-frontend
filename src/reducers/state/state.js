@@ -1,10 +1,10 @@
 import {
-  FAILURE_STATE,
-  REQUEST_STATE,
-  SUCCESS_STATE,
-  REQUEST_STATE_CITIES,
-  SUCCESS_STATE_CITIES,
-  FAILURE_STATE_CITIES
+  STATE_FAILURE,
+  STATE_REQUEST,
+  STATE_SUCCESS,
+  STATE_REQUEST_CITIES,
+  STATE_SUCCESS_CITIES,
+  STATE_FAILURE_CITIES
 } from '../../actions/state';
 
 const initialState = {
@@ -23,21 +23,21 @@ const initialStateCity = {
 
 export const state = (state = initialState, action) => {
   switch (action.type) {
-    case REQUEST_STATE:
+    case STATE_REQUEST:
       return Object.assign({}, state, { loading: true });
-    case SUCCESS_STATE:
+    case STATE_SUCCESS:
       return Object.assign({}, state, {
         payload: action.data.list,
         loading: false,
         error: false
       });
-    case SUCCESS_STATE_CITIES:
+    case STATE_SUCCESS_CITIES:
       return Object.assign({}, state, {
         cities: action.data.cities,
         loading: false,
         error: false
       });
-    case FAILURE_STATE:
+    case STATE_FAILURE:
       return Object.assign({}, state, {
         loading: false,
         error: true,
@@ -50,15 +50,15 @@ export const state = (state = initialState, action) => {
 
 export const city = (state = initialStateCity, action) => {
   switch (action.type) {
-    case REQUEST_STATE_CITIES:
+    case STATE_REQUEST_CITIES:
       return Object.assign({}, state, { loading: true });
-    case SUCCESS_STATE_CITIES:
+    case STATE_SUCCESS_CITIES:
       return Object.assign({}, state, {
         payload: action.data.cities,
         loading: false,
         error: false
       });
-    case FAILURE_STATE_CITIES:
+    case STATE_FAILURE_CITIES:
       return Object.assign({}, state, {
         loading: false,
         error: true,

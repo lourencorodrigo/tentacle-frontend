@@ -1,16 +1,16 @@
-export const REQUEST_STATE = 'REQUEST_STATE';
-export const SUCCESS_STATE = 'SUCCESS_STATE';
-export const FAILURE_STATE = 'FAILURE_STATE';
+export const STATE_REQUEST = '@tentacle/state/STATE_REQUEST';
+export const STATE_SUCCESS = '@tentacle/state/STATE_SUCCESS';
+export const STATE_FAILURE = '@tentacle/state/STATE_FAILURE';
 
-export const REQUEST_STATE_CITIES = 'REQUEST_STATE_CITIES';
-export const SUCCESS_STATE_CITIES = 'SUCCESS_STATE_CITIES';
-export const FAILURE_STATE_CITIES = 'FAILURE_STATE_CITIES';
+export const STATE_REQUEST_CITIES = '@tentacle/state/STATE_REQUEST_CITIES';
+export const STATE_SUCCESS_CITIES = '@tentacle/state/STATE_SUCCESS_CITIES';
+export const STATE_FAILURE_CITIES = '@tentacle/state/STATE_FAILURE_CITIES';
 
 export const getStates = () => ({
-  type: REQUEST_STATE
+  type: STATE_REQUEST
 });
 
 export const getCities = idState => ({
-  type: REQUEST_STATE_CITIES,
+  type: STATE_REQUEST_CITIES,
   idState
 });

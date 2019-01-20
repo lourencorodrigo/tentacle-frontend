@@ -8,7 +8,7 @@ describe('staet reducer', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
   });
 
-  it('should handle REQUEST_STATE', () => {
+  it('should handle STATE_REQUEST', () => {
     const theme = 'light';
     expect(reducer([], updateTheme(theme))).toEqual({
       theme

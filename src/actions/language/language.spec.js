@@ -1,10 +1,10 @@
-import { updateLanguage, UPDATE_LANGUAGE } from './index';
+import { updateLanguage, LANGUAGE_UPDATE } from './index';
 
 describe('language actions', () => {
   it('should create updateLanguage action', () => {
     const language = 'test';
     const expectedAction = {
-      type: UPDATE_LANGUAGE,
+      type: LANGUAGE_UPDATE,
       language
     };
     expect(updateLanguage(language)).toEqual(expectedAction);

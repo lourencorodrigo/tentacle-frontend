@@ -2,35 +2,35 @@ import { takeEvery, put, call } from 'redux-saga/effects';
 
 import { stateService } from '../../services';
 import {
-  REQUEST_STATE,
-  SUCCESS_STATE,
-  FAILURE_STATE,
-  REQUEST_STATE_CITIES,
-  SUCCESS_STATE_CITIES,
-  FAILURE_STATE_CITIES
+  STATE_REQUEST,
+  STATE_SUCCESS,
+  STATE_FAILURE,
+  STATE_REQUEST_CITIES,
+  STATE_SUCCESS_CITIES,
+  STATE_FAILURE_CITIES
 } from '../../actions/state';
 
 function* getStates() {
   try {
     const response = yield call(stateService.get);
-    yield put({ type: SUCCESS_STATE, data: response.data });
+    yield put({ type: STATE_SUCCESS, data: response.data });
   } catch (error) {
-    yield put({ type: FAILURE_STATE, data: error });
+    yield put({ type: STATE_FAILURE, data: error });
   }
 }
 
 function* getCities(action) {
   try {
     const response = yield call(stateService.getCities, action.idState);
-    yield put({ type: SUCCESS_STATE_CITIES, data: response.data });
+    yield put({ type: STATE_SUCCESS_CITIES, data: response.data });
   } catch (error) {
-    yield put({ type: FAILURE_STATE_CITIES, data: error });
+    yield put({ type: STATE_FAILURE_CITIES, data: error });
   }
 }
 
 const state = [
-  takeEvery(REQUEST_STATE, getStates),
-  takeEvery(REQUEST_STATE_CITIES, getCities)
+  takeEvery(STATE_REQUEST, getStates),
+  takeEvery(STATE_REQUEST_CITIES, getCities)
 ];
 
 export default state;

@@ -1,9 +1,9 @@
-import { getStates, REQUEST_STATE } from './index';
+import { getStates, STATE_REQUEST } from './index';
 
 describe('language actions', () => {
   it('should create updateLanguage action', () => {
     const expectedAction = {
-      type: REQUEST_STATE
+      type: STATE_REQUEST
     };
     expect(getStates()).toEqual(expectedAction);
   });

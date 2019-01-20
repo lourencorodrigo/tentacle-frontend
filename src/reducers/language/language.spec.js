@@ -8,7 +8,7 @@ describe('language reducer', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
   });
 
-  it('should handle UPDATE_LANGUAGE', () => {
+  it('should handle LANGUAGE_UPDATE', () => {
     const language = 'pt';
     expect(reducer([], updateLanguage(language))).toEqual({
       selected: language

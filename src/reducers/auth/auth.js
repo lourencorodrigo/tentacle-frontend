@@ -1,11 +1,7 @@
-import {
-  FAILURE_AUTHENTICATE,
-  REQUEST_AUTHENTICATE,
-  SUCCESS_AUTHENTICATE
-} from '../../actions/auth';
+import { AUTH_FAILURE, AUTH_REQUEST, AUTH_SUCCESS } from '../../actions/auth';
 
 const initialState = {
-  data: {},
+  payload: {},
   loading: false,
   error: false,
   errorData: {}
@@ -13,15 +9,15 @@ const initialState = {
 
 const auth = (state = initialState, action) => {
   switch (action.type) {
-    case REQUEST_AUTHENTICATE:
+    case AUTH_REQUEST:
       return Object.assign({}, state, { loading: true });
-    case SUCCESS_AUTHENTICATE:
+    case AUTH_SUCCESS:
       return Object.assign({}, state, {
-        data: action.data,
+        payload: action.data,
         loading: false,
         error: false
       });
-    case FAILURE_AUTHENTICATE:
+    case AUTH_FAILURE:
       return Object.assign({}, state, {
         loading: false,
         error: true,
