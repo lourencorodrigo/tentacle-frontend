@@ -1,5 +1,6 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 
@@ -37,6 +38,13 @@ class RegisterForm extends React.Component {
     const textButton = <FormattedMessage id="register.create_account" />;
     const loaderButton = <DotLoader />;
     return !loading ? textButton : loaderButton;
+  }
+
+  componentDidUpdate() {
+    const { cities, cityValue } = this.props;
+    if (cities.indexOf(cityValue) === -1) {
+      this.props.change('city', null);
+    }
   }
 
   render() {
@@ -159,11 +167,23 @@ RegisterForm.propTypes = {
   loadingCity: PropTypes.bool,
   handleSubmit: PropTypes.func,
   states: PropTypes.array,
-  cities: PropTypes.array
+  cities: PropTypes.array,
+  change: PropTypes.func,
+  cityValue: PropTypes.string
 };
 
-export default reduxForm({
+const registerFormReduxForm = reduxForm({
   form: 'register',
   asyncValidate: asyncValidateCity,
   asyncBlurFields: ['state']
 })(RegisterForm);
+
+const selector = formValueSelector('register');
+const registerFormConnect = connect(state => {
+  const cityValue = selector(state, 'city');
+  return {
+    cityValue
+  };
+})(registerFormReduxForm);
+
+export default registerFormConnect;
