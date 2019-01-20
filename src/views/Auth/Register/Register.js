@@ -29,7 +29,7 @@ class Register extends React.Component {
           states={stateState.payload}
           cities={cityState.payload}
           loadingState={stateState.loading}
-          loadingCity={stateState.loading}
+          loadingCity={cityState.loading}
           onSubmit={this.onSubmit.bind(this)}
           onChangeState={this.onChangeState.bind(this)}
         />
