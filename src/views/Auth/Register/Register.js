@@ -23,7 +23,6 @@ class Register extends React.Component {
 
   render() {
     const { stateState, cityState } = this.props;
-    console.log(cityState);
     return (
       <>
         <RegisterForm
