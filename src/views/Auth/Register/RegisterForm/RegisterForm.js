@@ -75,8 +75,8 @@ class RegisterForm extends React.Component {
           </FormGroup>
           <FormGroup>
             <Field
-              name="username"
-              id="username"
+              name="name"
+              id="name"
               type="text"
               textLabel={<FormattedMessage id="register.username" />}
               component={InputGroup}

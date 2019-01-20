@@ -1,6 +1,9 @@
 const setMessage = message => ({ message });
 
-const badRequest = () => ({ error: setMessage('error.bad_request') });
+const badRequest = response => ({
+  error: setMessage('error.bad_request'),
+  messages: response.data.message
+});
 
 const forbidden = () => {
   sessionStorage.removeItem('userInfo');
@@ -16,15 +19,14 @@ const statusReaction = {
   403: forbidden
 };
 
-/* eslint-disable */
+// eslint-disable-next-line
 const errorHandler = defaultReturn => error => {
   const statusCode = error.response.status;
   throw error.response &&
     statusCode &&
     statusReaction[statusCode] &&
-    statusReaction[statusCode]();
+    statusReaction[statusCode](error.response);
 };
-/* eslint-enable */
 
 const requestWrapper = (fn, defaultReturn) => (...args) =>
   Promise.resolve(fn(...args)).catch(errorHandler(defaultReturn));

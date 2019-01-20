@@ -1,19 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
+import { FormattedMessage } from 'react-intl';
 
 import RegisterForm from './RegisterForm';
 import Link from '../../../components/Link';
 import { WrapperLinks } from '../styles';
-import { FormattedMessage } from 'react-intl';
 import { path } from '../../../Router';
+import { isUserLogged } from '../../../services/authService';
 
 class Register extends React.Component {
-  onSubmit(values) {
-    console.log(values);
+  constructor(props) {
+    super(props);
+    console.log(props);
+  }
+
+  componentDidUpdate() {
+    const { isLoading, isError, errors } = this.props.userState;
+    this.showAlertError(isLoading, isError, errors);
+    this.redirectToHome(isError);
   }
 
   componentDidMount() {
-    this.props.getStates();
+    this.getStates();
+  }
+
+  getStates() {
+    const { stateState } = this.props;
+    if (stateState.payload.length === 0) {
+      this.props.getStates();
+    }
+  }
+
+  redirectToHome(isError) {
+    if (isUserLogged() && !isError) this.props.history.push(path.HOME);
+  }
+
+  showAlertError(isLoading, isError, errors) {
+    if (!isLoading && isError) {
+      errors.map(message => toast.error(<FormattedMessage id={message} />));
+    }
+  }
+
+  onSubmit(user) {
+    this.props.createUser(user);
   }
 
   onChangeState(event) {
@@ -44,10 +74,13 @@ class Register extends React.Component {
 }
 
 Register.propTypes = {
-  getStates: PropTypes.func,
-  getCities: PropTypes.func,
-  stateState: PropTypes.object,
-  cityState: PropTypes.object
+  getStates: PropTypes.func.isRequired,
+  getCities: PropTypes.func.isRequired,
+  stateState: PropTypes.object.isRequired,
+  cityState: PropTypes.object.isRequired,
+  createUser: PropTypes.func.isRequired,
+  userState: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 export default Register;

@@ -5,6 +5,7 @@ import { language } from './language';
 import { theme } from './theme';
 import { auth } from './auth';
 import { state, city } from './state';
+import { user } from './user';
 
 export default combineReducers({
   form: reduxFormReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   themeState: theme,
   authState: auth,
   stateState: state,
-  cityState: city
+  cityState: city,
+  userState: user
 });
