@@ -10,11 +10,6 @@ import { path } from '../../../Router';
 import { isUserLogged } from '../../../services/authService';
 
 class Register extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-  }
-
   componentDidUpdate() {
     const { isLoading, isError, errors } = this.props.userState;
     this.showAlertError(isLoading, isError, errors);
@@ -27,7 +22,8 @@ class Register extends React.Component {
 
   getStates() {
     const { stateState } = this.props;
-    if (stateState.payload.length === 0) {
+    const stateLength = stateState.payload.length;
+    if (stateLength === 0) {
       this.props.getStates();
     }
   }
@@ -52,7 +48,7 @@ class Register extends React.Component {
   }
 
   render() {
-    const { stateState, cityState } = this.props;
+    const { stateState, cityState, userState } = this.props;
     return (
       <>
         <RegisterForm
@@ -60,6 +56,7 @@ class Register extends React.Component {
           cities={cityState.payload}
           loadingState={stateState.loading}
           loadingCity={cityState.loading}
+          loadingRegister={userState.isLoading}
           onSubmit={this.onSubmit.bind(this)}
           onChangeState={this.onChangeState.bind(this)}
         />

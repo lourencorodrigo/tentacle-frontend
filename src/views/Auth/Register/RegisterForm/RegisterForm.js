@@ -16,27 +16,18 @@ import {
   required,
   email,
   minLength,
-  phone,
-  onlyLowercaseAndNumber
+  phone
 } from '../../../../utils/validators';
 import DotLoader from '../../../../components/DotLoader';
-// import store from '../../../../store';
 
 const minLength5 = minLength(5);
 
-// const asyncValidateCity = values => {
-//   return new Promise(resolve => {
-//     store.dispatch(CityAction.getCities(values.state));
-//     resolve();
-//   });
-// };
-
 class RegisterForm extends React.Component {
   rendererTextCreateAccountWithLoader() {
-    const { loading } = this.props;
+    const { loadingRegister } = this.props;
     const textButton = <FormattedMessage id="register.create_account" />;
     const loaderButton = <DotLoader />;
-    return !loading ? textButton : loaderButton;
+    return !loadingRegister ? textButton : loaderButton;
   }
 
   componentDidUpdate() {
@@ -49,9 +40,9 @@ class RegisterForm extends React.Component {
   render() {
     const {
       invalid,
-      loading,
       handleSubmit,
       states,
+      loadingRegister,
       loadingState,
       loadingCity,
       cities,
@@ -78,9 +69,9 @@ class RegisterForm extends React.Component {
               name="name"
               id="name"
               type="text"
-              textLabel={<FormattedMessage id="register.username" />}
+              textLabel={<FormattedMessage id="register.name" />}
               component={InputGroup}
-              validate={[required, onlyLowercaseAndNumber]}
+              validate={[required]}
             />
           </FormGroup>
           <FormGroup>
@@ -147,7 +138,7 @@ class RegisterForm extends React.Component {
               </FormGroup>
             </CityWrapper>
           </CityStateWrapper>
-          <Button type="submit" disabled={invalid || loading}>
+          <Button type="submit" disabled={invalid || loadingRegister}>
             {this.rendererTextCreateAccountWithLoader()}
           </Button>
         </Form>
@@ -166,6 +157,7 @@ RegisterForm.propTypes = {
   loading: PropTypes.bool,
   loadingState: PropTypes.bool,
   loadingCity: PropTypes.bool,
+  loadingRegister: PropTypes.bool,
   handleSubmit: PropTypes.func,
   states: PropTypes.array,
   cities: PropTypes.array,
@@ -176,7 +168,6 @@ RegisterForm.propTypes = {
 
 const registerFormReduxForm = reduxForm({
   form: 'register',
-  // asyncValidate: asyncValidateCity,
   asyncBlurFields: ['state']
 })(RegisterForm);
 
