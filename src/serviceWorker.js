@@ -76,6 +76,7 @@ function registerValidSW(swUrl, config) {
               );
 
               // Execute callback
+              // At this point it will give a redux dispatch
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
               }
