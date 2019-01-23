@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import { toast } from 'react-toastify';
 import { FormattedMessage } from 'react-intl';
 
@@ -51,6 +52,7 @@ class Register extends React.Component {
     const { stateState, cityState, userState } = this.props;
     return (
       <>
+        <Helmet title="Register" />
         <RegisterForm
           states={stateState.payload}
           cities={cityState.payload}
