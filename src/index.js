@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import App from './App';
 import store from './store';
 import GlobalStyle from './styles/fonts';
+import * as ServiceWorkerActions from './actions/serviceWorker';
 
 import './assets/vendor/reset.css';
 import './assets/vendor/fonts.css';
@@ -20,4 +21,13 @@ ReactDOM.render(
   rootElement
 );
 
-serviceWorker.register();
+const onUpdate = registration => {
+  console.info(registration);
+  store.dispatch(ServiceWorkerActions.updateRefresh(true));
+};
+
+const config = {
+  onUpdate
+};
+
+serviceWorker.register(config);

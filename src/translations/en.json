@@ -16,6 +16,7 @@
   "register.create_an_account": "Create an account",
   "register.phone": "Phone + DDD",
   "register.have_an_account": "Already have an account?",
+  "serviceWorker.new_update_available": "New update available. Click here to update.",
   "validations.invalid_phone": "Invalid phone number",
   "validations.invalid_email_address": "Invalid email address",
   "validations.required": "Required",
