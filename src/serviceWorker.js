@@ -78,7 +78,7 @@ function registerValidSW(swUrl, config) {
               // Execute callback
               // At this point it will give a redux dispatch
               if (config && config.onUpdate) {
-                config.onUpdate(registration);
+                config.onUpdate();
               }
             } else {
               // At this point, everything has been precached.

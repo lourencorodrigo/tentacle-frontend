@@ -3,7 +3,6 @@ import { ALERT_SHOW } from '../../actions/alert';
 const initialState = {
   show: false,
   title: '',
-  color: '',
   id: ''
 };
 
@@ -14,8 +13,7 @@ const alert = (state = initialState, action) => {
         ...state,
         show: true,
         title: action.title,
-        id: action.id,
-        color: action.color
+        id: action.id
       };
     default:
       return state;

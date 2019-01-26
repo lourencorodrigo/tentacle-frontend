@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
@@ -9,22 +10,23 @@ const reloadPage = () => {
   window.location.reload(true);
 };
 
-const renderAlert = (id, title, color) => {
+const selectAlert = (title, id) => {
   switch (id) {
     case ALERT_SERVICE_WORKER:
       return (
-        <Alert isClickFull={true} onClick={reloadPage} color={color}>
+        <Alert isClickFull={true} onClick={reloadPage} color="success">
           <FormattedMessage id={title} />
         </Alert>
       );
     default:
-      return <Alert>{title}</Alert>;
+      return <Alert color="danger">{title}</Alert>;
   }
 };
 
-const AlertContainer = ({ alertState: { show, id, title, color } }) => (
-  <>{show && renderAlert(id, title, color)}</>
-);
+const renderAlert = (show, title, id) => (show ? selectAlert(title, id) : null);
+
+const AlertContainer = ({ alertState }) =>
+  renderAlert(...Object.values(alertState));
 
 AlertContainer.propTypes = {
   alertState: PropTypes.object

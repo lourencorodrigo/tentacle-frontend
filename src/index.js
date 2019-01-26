@@ -23,11 +23,9 @@ ReactDOM.render(
 );
 
 const onUpdate = () => {
-  console.info(); // eslint-disable-line
   store.dispatch(
     AlertActions.showAlert(
       'serviceWorker.new_update_available',
-      'success',
       ALERT_SERVICE_WORKER
     )
   );
