@@ -6,11 +6,12 @@ import * as serviceWorker from './serviceWorker';
 import App from './App';
 import store from './store';
 import GlobalStyle from './styles/fonts';
-import * as ServiceWorkerActions from './actions/serviceWorker';
+import * as AlertActions from './actions/alert';
 
 import './assets/vendor/reset.css';
 import './assets/vendor/fonts.css';
 import 'react-toastify/dist/ReactToastify.css';
+import { ALERT_SERVICE_WORKER } from './utils/constants';
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
@@ -21,9 +22,15 @@ ReactDOM.render(
   rootElement
 );
 
-const onUpdate = registration => {
-  console.info(registration);
-  store.dispatch(ServiceWorkerActions.updateRefresh(true));
+const onUpdate = () => {
+  console.info(); // eslint-disable-line
+  store.dispatch(
+    AlertActions.showAlert(
+      'serviceWorker.new_update_available',
+      'success',
+      ALERT_SERVICE_WORKER
+    )
+  );
 };
 
 const config = {

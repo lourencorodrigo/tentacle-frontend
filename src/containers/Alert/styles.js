@@ -31,20 +31,43 @@ const slideInDown = keyframes`
 
 export const Wrapper = styled.div`
   cursor: pointer;
-  background: #9de1fe;
+  background: #d1ecf1;
   position: absolute;
   left: 0;
   right: 0;
+  border-bottom: solid 1px #bee5eb;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 4px;
   display: flex;
   justify-content: center;
-  padding: 6px;
+  padding: ${em(10)};
   animation: ${slideInDown} 1s linear;
 `;
 
 export const Title = styled.h1`
   margin: 0;
-  color: #0d5979;
+  color: #0c5460;
   font-family: Avenir;
   font-size: ${em(16)};
+`;
+
+export const Container = styled.div`
+  flex: 1;
+  justify-content: center;
+  display: flex;
+`;
+
+export const Button = styled.button`
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  color: inherit;
+  font-size: ${em(20)};
+  font-weight: 400;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+`;
+
+export const Close = styled.span`
+  //
 `;
