@@ -24,5 +24,6 @@
   "validations.must_be_ar_leass": "Deve ter {max} caracteres ou menos",
   "validations.only_lowercase_letters": "Deve ter somente letras minúsculas",
   "error.bad_request": "Senha/E-mail estão inválidos.",
-  "error.unauthorized": "Senha inválida."
+  "error.unauthorized": "Senha inválida.",
+  "error.network": "😢 Oops! Algum problema na sua internet. Que tal tentar mais tarde?"
 }

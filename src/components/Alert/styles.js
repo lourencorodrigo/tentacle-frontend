@@ -41,6 +41,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   padding: ${em(10)};
   animation: ${slideInDown} 1s linear;
+  opacity: 0.9;
 
   ${props =>
     props.color === 'success' &&
@@ -73,7 +74,6 @@ export const Wrapper = styled.div`
 
 export const Title = styled.h1`
   margin: 0;
-  /* color: #0c5460; */
   font-family: Avenir;
   font-size: ${em(16)};
 

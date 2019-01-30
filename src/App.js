@@ -5,6 +5,7 @@ import ThemeProvider from './containers/ThemeProvider';
 import I18nProvider from './containers/I18nProvider';
 import Router from './Router';
 import AlertContainer from './containers/Alert';
+import ServiceWorkerContainer from './containers/ServiceWorker';
 
 const toastConfig = {
   draggable: true,
@@ -18,6 +19,7 @@ const App = () => (
       <I18nProvider>
         <>
           <AlertContainer />
+          <ServiceWorkerContainer />
           <ToastContainer {...toastConfig} />
           <Router />
         </>

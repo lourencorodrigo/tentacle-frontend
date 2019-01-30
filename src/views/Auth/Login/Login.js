@@ -19,13 +19,9 @@ class Login extends React.Component {
   }
 
   componentDidUpdate() {
-    const {
-      loading,
-      error,
-      errorData: { message }
-    } = this.props.authState;
-    if (!loading && error) this.showAlertError(message);
-    if (isUserLogged()) this.redirectToHome();
+    const { loading, error, errorData } = this.props.authState;
+    !loading && error && errorData && this.showAlertError(errorData.message);
+    isUserLogged() && this.redirectToHome();
   }
 
   redirectToHome() {

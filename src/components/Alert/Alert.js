@@ -1,31 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Wrapper, Title, Container, Button, Span } from './styles';
+import { Wrapper, Title, Container } from './styles';
 
-const Alert = ({ color, onClick, children, isClickFull }) => (
+const Alert = ({ color, onClick, children }) => (
   <>
     {true && (
-      <Wrapper color={color} onClick={isClickFull ? onClick : () => null}>
+      <Wrapper color={color} onClick={onClick}>
         <Container>
           <Title color={color}>{children}</Title>
         </Container>
-        <Button
-          onClick={!isClickFull ? onClick : () => null}
-          type="button"
-          data-dismiss="alert"
-          aria-label="Close"
-        >
-          <Span aria-hidden="true">&times;</Span>
-        </Button>
       </Wrapper>
     )}
   </>
 );
 
 Alert.defaultProps = {
-  color: 'success',
-  isClickFull: false
+  color: 'success'
 };
 
 Alert.propTypes = {
@@ -34,8 +25,7 @@ Alert.propTypes = {
     PropTypes.element.isRequired
   ]),
   color: PropTypes.oneOf(['success', 'info', 'danger', 'warning']),
-  onClick: PropTypes.func,
-  isClickFull: PropTypes.bool
+  onClick: PropTypes.func
 };
 
 export default Alert;

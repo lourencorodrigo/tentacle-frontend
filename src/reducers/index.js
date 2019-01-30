@@ -7,6 +7,7 @@ import { auth } from './auth';
 import { state, city } from './state';
 import { user } from './user';
 import { alert } from './alert';
+import { serviceWorker } from './serviceWorker';
 
 export default combineReducers({
   form: reduxFormReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
   stateState: state,
   cityState: city,
   userState: user,
-  alert
+  alert,
+  serviceWorker
 });

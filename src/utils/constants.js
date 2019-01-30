@@ -1,3 +1,4 @@
 export const TOKEN_NAME = 'accessToken';
 
 export const ALERT_SERVICE_WORKER = 'ALERT_SERVICE_WORKER';
+export const ALERT_INTERNAL_SERVER_ERROR = 'ALERT_INTERNAL_SERVER_ERROR';

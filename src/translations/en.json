@@ -24,5 +24,6 @@
   "validations.must_be_ar_leass": "Must be {max} characters or less",
   "validations.only_lowercase_letters": "Must have only lowercase letters",
   "error.bad_request": "Senha/E-mail are invalid.",
-  "error.unauthorized": "Invalid password for the user."
+  "error.unauthorized": "Invalid password for the user.",
+  "error.network": "😢 Oops! Algum problema na sua internet. Que tal tentar mais tarde?"
 }

@@ -1,9 +1,9 @@
-import { ALERT_SHOW } from '../../actions/alert';
+import { ALERT_SHOW, ALERT_CLOSE } from '../../actions/alert';
 
 const initialState = {
   show: false,
   title: '',
-  id: ''
+  color: 'danger'
 };
 
 const alert = (state = initialState, action) => {
@@ -13,7 +13,12 @@ const alert = (state = initialState, action) => {
         ...state,
         show: true,
         title: action.title,
-        id: action.id
+        color: action.color
+      };
+    case ALERT_CLOSE:
+      return {
+        ...state,
+        show: false
       };
     default:
       return state;
