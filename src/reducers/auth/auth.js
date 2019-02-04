@@ -2,27 +2,29 @@ import { AUTH_FAILURE, AUTH_REQUEST, AUTH_SUCCESS } from '../../actions/auth';
 
 const initialState = {
   payload: {},
-  loading: false,
-  error: false,
-  errorData: {}
+  isLoading: false,
+  isError: false,
+  errors: {}
 };
 
 const auth = (state = initialState, action) => {
   switch (action.type) {
     case AUTH_REQUEST:
-      return Object.assign({}, state, { loading: true });
+      return { ...state, isLoading: true };
     case AUTH_SUCCESS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         payload: action.data,
-        loading: false,
-        error: false
-      });
+        isLoading: false,
+        isError: false
+      };
     case AUTH_FAILURE:
-      return Object.assign({}, state, {
-        loading: false,
-        error: true,
-        errorData: action.data.error
-      });
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        errors: action.data.error
+      };
     default:
       return state;
   }

@@ -19,8 +19,8 @@ class Login extends React.Component {
   }
 
   componentDidUpdate() {
-    const { loading, error, errorData } = this.props.authState;
-    !loading && error && errorData && this.showAlertError(errorData.message);
+    const { isLoading, isError, errors } = this.props.authState;
+    !isLoading && isError && errors && this.showAlertError(errors.message);
     isUserLogged() && this.redirectToHome();
   }
 
@@ -38,11 +38,11 @@ class Login extends React.Component {
   }
 
   render() {
-    const { loading } = this.props.authState;
+    const { isLoading } = this.props.authState;
     return (
       <>
         <Helmet title="Login" />
-        <LoginForm loading={loading} onSubmit={this.onSubmit.bind(this)} />
+        <LoginForm loading={isLoading} onSubmit={this.onSubmit.bind(this)} />
         <WrapperLinks>
           <Link to="/recovery-password">
             <FormattedMessage id="login.forgot_your_password" />
