@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { InputWrapper } from './styles';
 
 const Input = ({
+  autoComplete,
   input,
   type,
   id,
@@ -17,6 +18,7 @@ const Input = ({
   <InputWrapper
     {...input}
     placeholder={placeholder}
+    autoComplete={autoComplete}
     name={name}
     id={id}
     error={error}
@@ -33,6 +35,7 @@ Input.propTypes = {
   id: PropTypes.string,
   placeholder: PropTypes.string,
   name: PropTypes.string,
+  autoComplete: PropTypes.string,
   autoFocus: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   warning: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),

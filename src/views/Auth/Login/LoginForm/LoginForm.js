@@ -29,6 +29,7 @@ class LoginForm extends React.Component {
               name="email"
               id="email"
               type="email"
+              autoComplete="current-email"
               textLabel={<FormattedMessage id="login.email" />}
               component={InputGroup}
               validate={[email, required]}
@@ -39,6 +40,7 @@ class LoginForm extends React.Component {
               name="password"
               id="password"
               type="password"
+              autoComplete="current-password"
               textLabel={<FormattedMessage id="login.password" />}
               component={InputGroup}
               validate={[minLength5, required]}

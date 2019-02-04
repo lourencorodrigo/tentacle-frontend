@@ -7,6 +7,7 @@ import ControlLabel from '../../components/ControlLabel';
 import { Error, WrapperLabel } from './styles';
 
 const InputGroup = ({
+  autoComplete,
   input,
   placeholder,
   name,
@@ -26,6 +27,7 @@ const InputGroup = ({
       placeholder={placeholder}
       name={name}
       id={id}
+      autoComplete={autoComplete}
       disabled={disabled}
       error={touched && error}
       warning={touched && warning}
@@ -45,6 +47,7 @@ InputGroup.propTypes = {
   input: PropTypes.object,
   type: PropTypes.string,
   id: PropTypes.string,
+  autoComplete: PropTypes.string,
   placeholder: PropTypes.string,
   name: PropTypes.string,
   autoFocus: PropTypes.bool,
