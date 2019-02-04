@@ -6,10 +6,10 @@ export const Header = styled.header`
   position: sticky;
   top: 0;
   z-index: 1071;
-  min-height: ${em(64)};
+  min-height: ${em(72)};
   background: #33363b;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   padding: 0 ${em(16)};
 `;

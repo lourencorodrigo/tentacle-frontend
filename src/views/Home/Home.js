@@ -12,7 +12,11 @@ class Home extends Component {
   render() {
     return (
       <Wrapper>
-        <Navbar />
+        <Navbar>
+          <Navbar.Brand>
+            <a href="/">Tentacle</a>
+          </Navbar.Brand>
+        </Navbar>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris finibus
         magna at velit pulvinar posuere. Aenean blandit leo in lorem interdum,
         eu dignissim augue pharetra. In pulvinar lorem vitae eros posuere
